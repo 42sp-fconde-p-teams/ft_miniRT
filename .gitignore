@@ -1,0 +1,12 @@
+*.o
+miniRT
+*.a
+*.out
+.test_failures
+*.log
+*.json
+*.swp
+GEMINI.md
+CLAUDE.md
+*.out
+docker-nvim/
