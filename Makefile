@@ -1,0 +1,108 @@
+NAME		= miniRT
+
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -g
+INCLUDES	= -I./includes -I./lib/libft
+LIBS		= -L./lib/libft -lft -lreadline
+
+# Directories
+SRC_DIR		= src
+OBJ_DIR		= obj
+LIBFT_DIR	= lib/libft
+
+# Source files
+SRC_FILES	= main.c \
+			  parsing/parser.c \
+			  parsing/parser_utils.c \
+			  parsing/expander/expander.c \
+			  parsing/expander/remove_quotes.c \
+			  parsing/expander/variable_expansion.c \
+			  parsing/expander/tilde_expansion.c \
+			  parsing/expander/token_insertion.c \
+			  parsing/fsm/get_token_len.c \
+			  parsing/fsm/check_assignment_operator.c \
+			  parsing/fsm/clear_token_list.c \
+			  parsing/fsm/set_tokens.c \
+			  parsing/fsm/input_checker.c \
+			  execution/executor.c \
+			  execution/executor_utils.c \
+			  execution/execute_builtin.c \
+			  execution/redirections.c \
+			  execution/heredoc.c	\
+			  execution/pipes.c \
+			  builtins/cd.c \
+			  builtins/echo.c \
+			  builtins/env.c \
+			  builtins/exit.c \
+			  builtins/export.c \
+			  builtins/pwd.c \
+			  builtins/unset.c \
+			  utils/errors.c \
+			  utils/get_env_value.c \
+			  utils/env_set.c \
+			  utils/env_init.c \
+			  utils/env_array.c \
+			  utils/validate_env_identifier.c \
+			  utils/setup_signals.c \
+			  utils/has_meaningful_content.c \
+			  free/free-parser.c \
+			  free/free_env_list.c
+
+
+SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
+
+# Colors
+GREEN		= \033[0;32m
+RED			= \033[0;31m
+RESET		= \033[0m
+
+all: $(NAME)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ -g3
+	@echo "$(GREEN)Compiled: $<$(RESET)"
+
+$(NAME): $(OBJS)
+	@make -C $(LIBFT_DIR)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
+	@echo "$(GREEN)✓ Shelly compiled successfully!$(RESET)"
+
+unit-tests:
+	@$(MAKE) -C ./tests
+
+clean:
+	@make -C $(LIBFT_DIR) clean
+	@rm -rf $(OBJ_DIR)
+	@$(MAKE) clean -C ./tests
+	@echo "$(RED)Object files removed$(RESET)"
+
+fclean: clean
+	@make -C $(LIBFT_DIR) fclean
+	@rm -f $(NAME)
+	@rm -rf ./test/test_report.log
+	@$(MAKE) fclean -C ./tests
+	@echo "$(RED)Executable removed$(RESET)"
+
+sanitize: CFLAGS += -fsanitize=address
+sanitize: re
+	@echo "$(GREEN)✓ Shelly compiled with AddressSanitizer!$(RESET)"
+
+tester: CFLAGS += -DTESTER
+tester: re
+	@echo "$(GREEN)✓ Shelly compiled for tester mode!$(RESET)"
+
+val:
+	@valgrind valgrind \
+			--leak-check=full \
+			--show-leak-kinds=all \
+			--track-origins=yes \
+			--trace-children=yes \
+			--track-fds=yes		\
+			--trace-children-skip='/bin/,/sbin/,/usr/bin/*' \
+			--suppressions=shelly.supp ./$(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re sanitize tester
