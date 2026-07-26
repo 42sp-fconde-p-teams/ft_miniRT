@@ -1,5 +1,4 @@
 #include "./tests.h"
-#include <stdio.h>
 
 FILE	*g_test_log = NULL;
 
