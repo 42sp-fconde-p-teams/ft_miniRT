@@ -3,11 +3,12 @@
 
 // project header files
 # include "../lib/libft/libft.h"
-# include "../minishell.h"
+# include "../includes/miniRT.h"
+# include <stdio.h>
 
-int	start_capture(void);
-char	*end_capture(int saved_stdout);
-void	init_test_log(void);
+int			start_capture(void);
+char		*end_capture(int saved_stdout);
+void		init_test_log(void);
 extern FILE	*g_test_log;
 
 // def funny stuff here, friendo!
