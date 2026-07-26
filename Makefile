@@ -12,7 +12,7 @@ LIBFT_DIR	= lib/libft
 
 # Source files
 SRC_FILES	= main.c \
-			  src/sample.c
+						sample.c
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
@@ -33,7 +33,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(NAME): $(OBJS)
 	@make -C $(LIBFT_DIR)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
-	@echo "$(GREEN)✓ Shelly compiled successfully!$(RESET)"
+	@echo "$(GREEN)✓ FT_miniRT compiled successfully!$(RESET)"
 
 unit-tests:
 	@$(MAKE) -C ./tests
@@ -53,11 +53,11 @@ fclean: clean
 
 sanitize: CFLAGS += -fsanitize=address
 sanitize: re
-	@echo "$(GREEN)✓ Shelly compiled with AddressSanitizer!$(RESET)"
+	@echo "$(GREEN)✓ FT_miniRT compiled with AddressSanitizer!$(RESET)"
 
 tester: CFLAGS += -DTESTER
 tester: re
-	@echo "$(GREEN)✓ Shelly compiled for tester mode!$(RESET)"
+	@echo "$(GREEN)✓ FT_miniRT compiled for tester mode!$(RESET)"
 
 val:
 	@valgrind valgrind \
