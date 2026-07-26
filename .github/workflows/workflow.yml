@@ -1,0 +1,35 @@
+name: Workflow CI
+
+on:
+  workflow_dispatch: # Manual
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt update
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run unit tests
+        run: |
+          echo "Starting unit regressive tests..."
+          echo "Running: make unittest"
+
+          make unit-tests
+          # if make test returns 1, test fails.
+          # If returns 0, test succeeds.
+          
+          echo "Execution completed. Check results"
+      - name: Upload test report log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report-log
+          path: ./tests/test_report.log
+          retention-days: 5
