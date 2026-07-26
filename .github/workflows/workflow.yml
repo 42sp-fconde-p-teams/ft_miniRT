@@ -13,13 +13,14 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
+          sudo apt install libreadline-dev -y
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Run unit tests
         run: |
           echo "Starting unit regressive tests..."
-          echo "Running: make unittest"
+          echo "Running: make test"
 
           make unit-tests
           # if make test returns 1, test fails.
