@@ -14,7 +14,8 @@ LIBS		= -L./lib/libft -lft -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 # Source files
 SRC_FILES	= main.c \
-						sample.c
+				sample.c \
+				window/init_window.c
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
@@ -74,7 +75,7 @@ val:
 			--suppressions=shelly.supp ./$(NAME)
 
 norminette:
-	@norminette src/*.c includes/*.h
+	@norminette src/* includes/*.h
 
 re: fclean all
 

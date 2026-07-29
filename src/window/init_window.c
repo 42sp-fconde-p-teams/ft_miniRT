@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 20:37:58 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/07/29 20:07:24 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/07/29 20:01:33 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/07/29 20:08:31 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 
-int	main(void)
+int	init_window(void)
 {
-	ft_printf("Success: %d\n", sample_return(EXIT_SUCCESS));
-	ft_printf("Fail: %d\n", sample_return(EXIT_FAILURE));
-	init_window();
+	void	*mlx;
+	void	*mlx_win;
+
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 800, 600, "FT_miniRT");
+	(void)mlx_win;
+	mlx_loop(mlx);
 	return (0);
 }
