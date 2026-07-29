@@ -73,6 +73,9 @@ val:
 			--trace-children-skip='/bin/,/sbin/,/usr/bin/*' \
 			--suppressions=shelly.supp ./$(NAME)
 
+norminette:
+	@norminette src/*.c includes/*.h
+
 re: fclean all
 
 .PHONY: all clean fclean re sanitize tester
