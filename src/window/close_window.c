@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.h                                           :+:      :+:    :+:   */
+/*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/07/29 21:02:42 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/07/29 20:15:11 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/07/29 20:26:44 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+// #include "../includes/miniRT.h"
 
-# include "../lib/libft/libft.h"
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
-# include "../lib/minilibx/mlx.h"
+// int	close_window()
+// {
 
-# define KEY_ESC 27 //65307
-
-typedef struct s_mlx_wrap
-{
-	void	*mlx;
-	void	*mlx_win;
-}	t_mlx_wrap;
-
-int	sample_return(int hard_result);
-int	init_window(void);
-
-#endif
+// }
