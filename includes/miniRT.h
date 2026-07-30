@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/07/29 21:02:42 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/07/30 19:47:23 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include "../lib/minilibx/mlx.h"
 
-# define KEY_ESC 27 //65307
+# define KEY_ESC 65307
 
 typedef struct s_mlx_wrap
 {
