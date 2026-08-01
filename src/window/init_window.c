@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 20:01:33 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/07/30 20:53:00 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/01 19:07:35 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_key_hook(int keycode, void *param)
 
 	mlx_wrap = (t_mlx_wrap *)param;
 	if (keycode == KEY_ESC)
-		mlx_destroy_window(mlx_wrap->mlx, mlx_wrap->mlx_win);
+		close_window(mlx_wrap);
 	return (0);
 }
 
@@ -29,6 +29,7 @@ int	init_window(void)
 	mlx_wrap.mlx = mlx_init();
 	mlx_wrap.mlx_win = mlx_new_window(mlx_wrap.mlx, 800, 600, "FT_miniRT");
 	mlx_key_hook(mlx_wrap.mlx_win, ft_key_hook, &mlx_wrap);
+	mlx_hook(mlx_wrap.mlx_win, 33, 0, close_window, &mlx_wrap);
 	mlx_loop(mlx_wrap.mlx);
 	return (0);
 }
