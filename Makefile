@@ -73,7 +73,7 @@ val:
 			--trace-children=yes \
 			--track-fds=yes		\
 			--trace-children-skip='/bin/,/sbin/,/usr/bin/*' \
-			--suppressions=shelly.supp ./$(NAME)
+			./$(NAME)
 
 norminette:
 	@norminette src/* includes/*.h
