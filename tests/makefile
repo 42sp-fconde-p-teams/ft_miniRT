@@ -11,7 +11,7 @@ C_FILES			= ../src/sample.c \
 
 UTILS				= utils/test_log.c utils/capture_stdout.c
 
-LIBS				= $(LIBFT) -lreadline -ldl $(MLX) -lXext -lX11 -lm # -glfw -pthread -lm
+LIBS				= $(LIBFT) -ldl $(MLX) -lXext -lX11 -lm # -glfw -pthread -lm
 HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 
 							# Tests section
