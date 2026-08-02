@@ -14,9 +14,14 @@ jobs:
         run: |
           sudo apt update
           sudo apt install libreadline-dev -y
+          sudo apt install -y xvfb x11-utils
+          sudo apt install -y libxext-dev
+          sudo apt install libbsd-dev
       - name: Checkout
         uses: actions/checkout@v4
-
+      - name: Compile graphic lib
+        run: |
+          make -C ./lib/minilibx
       - name: Run unit tests
         run: |
           echo "Starting unit regressive tests..."

@@ -2,17 +2,21 @@ NAME		= miniRT
 
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g
-INCLUDES	= -I./includes -I./lib/libft
-LIBS		= -L./lib/libft -lft # -lreadline
 
 # Directories
 SRC_DIR		= src
 OBJ_DIR		= obj
 LIBFT_DIR	= lib/libft
+MLX_DIR		= lib/minilibx
+
+INCLUDES	= -I./includes -I./lib/libft -I$(MLX_DIR)
+LIBS		= -L./lib/libft -lft -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 # Source files
 SRC_FILES	= main.c \
-			  src/sample.c
+				sample.c \
+				window/init_window.c \
+				window/close_window.c
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
@@ -32,14 +36,16 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 $(NAME): $(OBJS)
 	@make -C $(LIBFT_DIR)
+	@make -C $(MLX_DIR)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
-	@echo "$(GREEN)✓ Shelly compiled successfully!$(RESET)"
+	@echo "$(GREEN)✓ FT_miniRT compiled successfully!$(RESET)"
 
 unit-tests:
 	@$(MAKE) -C ./tests
 
 clean:
 	@make -C $(LIBFT_DIR) clean
+	@make -C $(MLX_DIR) clean
 	@rm -rf $(OBJ_DIR)
 	@$(MAKE) clean -C ./tests
 	@echo "$(RED)Object files removed$(RESET)"
@@ -53,11 +59,11 @@ fclean: clean
 
 sanitize: CFLAGS += -fsanitize=address
 sanitize: re
-	@echo "$(GREEN)✓ Shelly compiled with AddressSanitizer!$(RESET)"
+	@echo "$(GREEN)✓ FT_miniRT compiled with AddressSanitizer!$(RESET)"
 
 tester: CFLAGS += -DTESTER
 tester: re
-	@echo "$(GREEN)✓ Shelly compiled for tester mode!$(RESET)"
+	@echo "$(GREEN)✓ FT_miniRT compiled for tester mode!$(RESET)"
 
 val:
 	@valgrind valgrind \
@@ -68,6 +74,9 @@ val:
 			--track-fds=yes		\
 			--trace-children-skip='/bin/,/sbin/,/usr/bin/*' \
 			--suppressions=shelly.supp ./$(NAME)
+
+norminette:
+	@norminette src/* includes/*.h
 
 re: fclean all
 
