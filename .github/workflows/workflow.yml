@@ -18,7 +18,9 @@ jobs:
           sudo apt install -y libxext-dev
       - name: Checkout
         uses: actions/checkout@v4
-
+      - name: Compile graphic lib
+        run: |
+          make -C ./lib/minilibx
       - name: Run unit tests
         run: |
           echo "Starting unit regressive tests..."
