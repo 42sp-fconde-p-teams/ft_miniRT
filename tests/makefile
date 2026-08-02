@@ -1,8 +1,9 @@
 CC          = cc
 CFLAGS      = -g3 -Wextra -Werror -Wall
 LIBFT_DIR   = ../lib/libft
-MLX_DIR			= ../lib/minilibx
 LIBFT       = $(LIBFT_DIR)/libft.a
+MLX_DIR			= ../lib/minilibx
+MLX					= $(MLX_DIR)/libmlx_Linux.a
 
 # IMPORTANTE: Garanta que nenhum desses arquivos tenha uma função main()
 C_FILES			= ../src/sample.c \
@@ -10,7 +11,7 @@ C_FILES			= ../src/sample.c \
 
 UTILS				= utils/test_log.c utils/capture_stdout.c
 
-LIBS				= $(LIBFT) -lreadline -ldl -L$(MLX_DIR) -lmlx -lXext -lX11 -lm # -glfw -pthread -lm
+LIBS				= $(LIBFT) -lreadline -ldl $(MLX) -lXext -lX11 -lm # -glfw -pthread -lm
 HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 
 							# Tests section
