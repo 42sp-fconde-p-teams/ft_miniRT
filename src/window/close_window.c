@@ -6,13 +6,13 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 20:15:11 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/02 09:59:02 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/02 11:27:10 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/miniRT.h"
 
-int	close_window(t_mlx_wrap *mlx_wrap)
+int	close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int))
 {
 	if (mlx_wrap->mlx_win)
 	{
@@ -25,6 +25,13 @@ int	close_window(t_mlx_wrap *mlx_wrap)
 		free(mlx_wrap->mlx);
 		mlx_wrap->mlx = NULL;
 	}
-	// exit(0);
+	if (term_func)
+		term_func(0);
+	return (0);
+}
+
+int	close_btn(t_mlx_wrap *mlx_wrap)
+{
+	close_window(mlx_wrap, exit);
 	return (0);
 }
