@@ -1,20 +1,24 @@
 CC          = cc
 CFLAGS      = -g3 -Wextra -Werror -Wall
 LIBFT_DIR   = ../lib/libft
+MLX_DIR			= ../lib/minilibx
 LIBFT       = $(LIBFT_DIR)/libft.a
 
 # IMPORTANTE: Garanta que nenhum desses arquivos tenha uma função main()
-C_FILES     = ../src/sample.c
-UTILS       = utils/test_log.c utils/capture_stdout.c
-              
-LIBS        = $(LIBFT) -lreadline -ldl # -glfw -pthread -lm
-HEADERS     = -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
+C_FILES			= ../src/sample.c \
+							../src/window/close_window.c
 
-              # Tests section
-              TEST_DIR    = ./
-              TEST_SRCS   = $(TEST_DIR)/test-sample.c
-TEST_BINS   = $(TEST_SRCS:.c=.out)
-REPORT_LOG  = test_report.log
+UTILS				= utils/test_log.c utils/capture_stdout.c
+
+LIBS				= $(LIBFT) -lreadline -ldl -L$(MLX_DIR) -lmlx -lXext -lX11 -lm # -glfw -pthread -lm
+HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
+
+							# Tests section
+							TEST_DIR		= ./
+							TEST_SRCS		= $(TEST_DIR)/test-sample.c \
+														$(TEST_DIR)/test-close_window.c
+TEST_BINS		= $(TEST_SRCS:.c=.out)
+REPORT_LOG	= test_report.log
 
 # Alvo principal de teste
 test: $(LIBFT)
