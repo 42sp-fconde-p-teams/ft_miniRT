@@ -57,10 +57,6 @@ fclean: clean
 	@$(MAKE) fclean -C ./tests
 	@echo "$(RED)Executable removed$(RESET)"
 
-sanitize: CFLAGS += -fsanitize=address
-sanitize: re
-	@echo "$(GREEN)✓ FT_miniRT compiled with AddressSanitizer!$(RESET)"
-
 tester: CFLAGS += -DTESTER
 tester: re
 	@echo "$(GREEN)✓ FT_miniRT compiled for tester mode!$(RESET)"
@@ -80,4 +76,4 @@ norminette:
 
 re: fclean all
 
-.PHONY: all clean fclean re sanitize tester
+.PHONY: all clean fclean re tester
