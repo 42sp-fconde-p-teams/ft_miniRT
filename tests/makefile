@@ -7,7 +7,8 @@ MLX					= $(MLX_DIR)/libmlx_Linux.a
 
 # IMPORTANTE: Garanta que nenhum desses arquivos tenha uma função main()
 C_FILES			= ../src/sample.c \
-							../src/window/close_window.c
+					../src/window/close_window.c \
+					../src/parser/checker/check_extention.c
 
 UTILS				= utils/test_log.c utils/capture_stdout.c
 
@@ -17,7 +18,7 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 							# Tests section
 							TEST_DIR		= ./
 							TEST_SRCS		= $(TEST_DIR)/test-sample.c \
-														$(TEST_DIR)/test-close_window.c
+												$(TEST_DIR)/test-close_window.c
 TEST_BINS		= $(TEST_SRCS:.c=.out)
 REPORT_LOG	= test_report.log
 

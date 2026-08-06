@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/06 18:31:21 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/06 19:09:25 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int	sample_return(int hard_result);
 int	init_window(void);
 int	close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
 int	close_btn(t_mlx_wrap *mlx_wrap);
+int	check_extention(char *file_name);
 
 #endif

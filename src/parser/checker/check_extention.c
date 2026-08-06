@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 18:46:02 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/06 18:47:44 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/06 19:24:14 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,23 @@
 
 int	check_extention(char *file_name)
 {
-	// logic here
+	int		ext_ending;
+	char	*str;
+
+	ext_ending = 0;
+	str = NULL;
+	ext_ending = ft_strlen(file_name) - 3;
+	str = ft_substr(file_name, ext_ending, 3);
+	if (str != NULL)
+	{
+		if (ft_strncmp(str, ".rt", 3))
+		{
+			free(str);
+			return (EXIT_SUCCESS);
+		}
+		free(str);
+		return (EXIT_FAILURE);
+	}
+	else
+		return (EXIT_FAILURE);
 }
