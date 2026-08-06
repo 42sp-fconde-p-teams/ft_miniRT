@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 18:46:02 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/06 19:24:14 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/06 20:55:43 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_extention(char *file_name)
 	str = ft_substr(file_name, ext_ending, 3);
 	if (str != NULL)
 	{
-		if (ft_strncmp(str, ".rt", 3))
+		if (ft_strncmp(str, ".rt", 3) == 0)
 		{
 			free(str);
 			return (EXIT_SUCCESS);
