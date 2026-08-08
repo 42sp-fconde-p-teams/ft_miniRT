@@ -16,7 +16,7 @@ static int	check_file_lenght(char *file_name)
 {
 	if (ft_strlen(file_name) < 4)
 	{
-		printf("Error\nFile must be more than 3 chararcers!\n");
+		printf("Error\nFile must be more than 3 characters!\n");
 		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
