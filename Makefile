@@ -16,7 +16,8 @@ LIBS		= -L./lib/libft -lft -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 SRC_FILES	= main.c \
 				sample.c \
 				window/init_window.c \
-				window/close_window.c
+				window/close_window.c \
+				parser/checker/check_extention.c
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
