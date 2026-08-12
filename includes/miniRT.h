@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniRT.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/06 19:09:25 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/12 13:10:20 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	init_window(void);
 int	close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
 int	close_btn(t_mlx_wrap *mlx_wrap);
 int	check_extention(char *file_name);
+int	read_file(char *file);
 
 #endif

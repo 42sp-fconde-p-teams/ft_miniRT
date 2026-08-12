@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/25 20:37:58 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/12 13:05:25 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/12 13:03:49 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/12 13:14:45 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/miniRT.h"
+#include "../../includes/miniRT.h"
 
-int	main(int ac, char **av)
+int	read_file(char *file)
 {
-	if (ac != 2)
+	int		fd;
+	char	*line;
+
+	fd = 0;
+	line = NULL;
+	if (check_extention(file) == EXIT_FAILURE)
 	{
-		printf("Error\nExpected exactly one parameter!\n");
-		return (1);
+		printf("Error\nFile extention must be \".rt\"!\n");
+		return (EXIT_FAILURE);
 	}
-	read_file(av[1]);
-	init_window();
-	return (0);
+	fd = open(file, O_RDONLY);
+
+	while ((line = get_next_line(fd)))
+	{
+		printf("%s\n", line);
+	}
+	if (line)
+		free(line);
+	close(fd);
+	return (EXIT_SUCCESS);
 }
