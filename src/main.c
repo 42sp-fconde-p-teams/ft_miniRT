@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:37:58 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/06 19:29:06 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/12 13:05:25 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,7 @@ int	main(int ac, char **av)
 		printf("Error\nExpected exactly one parameter!\n");
 		return (1);
 	}
-	if (check_extention(av[1]) == EXIT_FAILURE)
-	{
-		printf("Error\nFile extention must be \".rt\"!\n");
-		return (1);
-	}
+	read_file(av[1]);
 	init_window();
 	return (0);
 }
