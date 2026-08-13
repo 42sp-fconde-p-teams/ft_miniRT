@@ -17,7 +17,8 @@ SRC_FILES	= main.c \
 				sample.c \
 				window/init_window.c \
 				window/close_window.c \
-				parser/checker/check_extention.c
+				parser/checker/check_extention.c \
+				engine/vector.c
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
