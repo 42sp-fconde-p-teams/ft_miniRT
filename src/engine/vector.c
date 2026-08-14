@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 21:24:28 by thfernan          #+#    #+#             */
-/*   Updated: 2026/08/13 21:24:37 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/08/14 00:18:38 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,15 @@ t_vec3	vec3_mul(t_vec3 v, double scale)
 	result.y = v.y * scale;
 	result.z = v.z * scale;
 	return (result);
+}
+
+int	vec3_almost_equal(t_vec3 a, t_vec3 b)
+{
+	if (fabs(a.x - b.x) >= EPSILON)
+		return (0);
+	if (fabs(a.y - b.y) >= EPSILON)
+		return (0);
+	if (fabs(a.z - b.z) >= EPSILON)
+		return (0);
+	return (1);
 }
