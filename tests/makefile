@@ -10,6 +10,7 @@ C_FILES			= ../src/sample.c \
 					../src/window/close_window.c \
 					../src/parser/checker/check_extention.c \
 					../src/engine/vector.c
+					../src/parser/reader/read_file.c
 
 UTILS				= utils/test_log.c utils/capture_stdout.c
 

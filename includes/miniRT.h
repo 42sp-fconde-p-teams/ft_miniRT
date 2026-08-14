@@ -85,5 +85,11 @@ int		init_window(void);
 int		close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
 int		close_btn(t_mlx_wrap *mlx_wrap);
 int		check_extention(char *file_name);
+int	sample_return(int hard_result);
+int	init_window(void);
+int	close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
+int	close_btn(t_mlx_wrap *mlx_wrap);
+int	check_extention(char *file_name);
+int	read_file(char *file);
 
 #endif
