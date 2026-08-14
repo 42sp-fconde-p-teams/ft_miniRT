@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vector.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/13 21:24:28 by thfernan          #+#    #+#             */
+/*   Updated: 2026/08/13 21:24:37 by thfernan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/miniRT.h"
 
 // 3D vector with coordinates
@@ -32,6 +44,7 @@ t_vec3	vec3_sub(t_vec3 a, t_vec3 b)
 	result.z = a.z - b.z;
 	return (result);
 }
+
 // scales the vector (increases or decreases its length)
 t_vec3	vec3_mul(t_vec3 v, double scale)
 {
@@ -42,4 +55,3 @@ t_vec3	vec3_mul(t_vec3 v, double scale)
 	result.z = v.z * scale;
 	return (result);
 }
-

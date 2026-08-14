@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/09 21:44:39 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/08/13 21:25:13 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define WIN_HEIGHT 600
 # define FOV_MIN 0
 # define FOV_MAX 180
+
 typedef struct s_vec3
 {
 	double	x;
@@ -78,21 +79,6 @@ t_vec3	vec3(double x, double y, double z);
 t_vec3	vec3_add(t_vec3 a, t_vec3 b);
 t_vec3	vec3_sub(t_vec3 a, t_vec3 b);
 t_vec3	vec3_mul(t_vec3 v, double t);
-double	vec3_dot(t_vec3 a, t_vec3 b);
-double	vec3_len(t_vec3 v);
-t_vec3	vec3_norm(t_vec3 v);
-
-// interseccion
-double	intersect_sphere(t_ray ray, t_sphere sphere);
-
-// cam ray
-t_ray	camera_gen_ray(t_camera *cam, int x, int y);
-
-// render
-void	render(t_mlx_wrap *mlx, t_scene *scene);
-
-// pixel put
-void	my_mlx_pixel_put(t_img *img, int x, int y, t_vec3 color);
 
 int		sample_return(int hard_result);
 int		init_window(void);
