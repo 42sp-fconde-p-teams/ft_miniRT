@@ -9,6 +9,7 @@ MLX					= $(MLX_DIR)/libmlx_Linux.a
 C_FILES			= ../src/sample.c \
 					../src/window/close_window.c \
 					../src/parser/checker/check_extention.c \
+					../src/engine/vector.c \
 					../src/parser/reader/read_file.c
 
 UTILS				= utils/test_log.c utils/capture_stdout.c
@@ -20,12 +21,13 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 							TEST_DIR		= ./
 							TEST_SRCS		= $(TEST_DIR)/test-sample.c \
 												$(TEST_DIR)/test-close_window.c \
-												$(TEST_DIR)/test-check_extention.c
+												$(TEST_DIR)/test-check_extention.c \
+												$(TEST_DIR)/test-basic_vectors.c
 TEST_BINS		= $(TEST_SRCS:.c=.out)
 REPORT_LOG	= test_report.log
 
 # Alvo principal de teste
-test: $(LIBFT)
+test: $(LIBFT) $(MLX)
 	@rm -f $(REPORT_LOG)
 	@echo "TEST REPORT - $(shell date)" > $(REPORT_LOG)
 	@echo "------------------------------------------" >> $(REPORT_LOG)
@@ -53,7 +55,7 @@ test: $(LIBFT)
 		exit 0; \
 	fi
 
-single: $(LIBFT)
+single: $(LIBFT) $(MLX)
 	@echo "Compiling individual test file for: $(T)"
 	$(CC) $(CFLAGS) $(C_FILES) $(UTILS) test-$(T).c $(HEADERS) $(LIBS) -o unit_test.out
 
@@ -75,12 +77,17 @@ $(TEST_DIR)/%.out: $(TEST_DIR)/%.c
 $(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR) --no-print-directory
 
+$(MLX):
+	@$(MAKE) -C $(MLX_DIR) --no-print-directory
+
 clean:
 	@$(MAKE) -C $(LIBFT_DIR) clean --no-print-directory
+	@$(MAKE) -C $(MLX_DIR) clean --no-print-directory
 	rm -f *.out
 
 fclean: clean
 	@rm -rf minishell $(REPORT_LOG)
 	@$(MAKE) -C $(LIBFT_DIR) fclean --no-print-directory
+	@$(MAKE) -C $(MLX_DIR) fclean --no-print-directory
 
 .PHONY: test run_test_bins clean fclean

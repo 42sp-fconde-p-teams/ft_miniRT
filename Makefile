@@ -18,6 +18,7 @@ SRC_FILES	= main.c \
 				window/init_window.c \
 				window/close_window.c \
 				parser/checker/check_extention.c \
+				engine/vector.c \
 				parser/reader/read_file.c
 
 
