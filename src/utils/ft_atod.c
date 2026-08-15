@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 20:15:11 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/15 18:40:43 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/15 18:43:58 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ double	ft_atod(char *nptr)
 	{
 		acc = gen_int_part(&nptr, acc);
 	}
-
 	if (*nptr == '.')
 	{
 		nptr++;
