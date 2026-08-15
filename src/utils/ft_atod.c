@@ -6,11 +6,11 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/14 20:15:11 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/14 20:34:58 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/15 17:12:26 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/miniRT.h"
 
 static double	gen_int_part(char *ptr, double acc)
 {
@@ -58,10 +58,6 @@ double	ft_atod(const char *nptr)
 	ptr_sign = &sign;
 	sign = 1.0;
 	acc = 0.0;
-	while (*nptr >= 0 && *nptr <= 32)
-		nptr++;
-	if (ft_isalpha(*nptr))
-		return (0);
 	if (!check_sign((char *)nptr, ptr_sign))
 		return (0);
 	while (*nptr)
