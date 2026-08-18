@@ -10,6 +10,8 @@ C_FILES			= ../src/sample.c \
 					../src/window/close_window.c \
 					../src/parser/checker/check_extention.c \
 					../src/engine/vector.c \
+					../src/engine/vector_utils.c \
+					../src/engine/vector_product.c \
 					../src/parser/reader/read_file.c \
 					../src/utils/ft_atod.c
 
