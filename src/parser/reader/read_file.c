@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 13:03:49 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/20 19:11:56 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/20 19:49:33 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,19 @@ static int	deal_with_ext_err(char *file)
 
 static int	deal_with_lines(char *line, int fd)
 {
+	char	**split_line;
+
+	split_line = NULL;
+	line = get_next_line(fd);
 	while (line)
 	{
-		printf("%s\n", line);
+		split_line = ft_split(line, ' ');
+		printf("NBR OF ELEMENTS: %zu\n", count_split_elements(split_line));
+		while (*split_line)
+		{
+			printf("%s\n", *split_line);
+			split_line++;
+		}
 		free(line);
 		line = get_next_line(fd);
 	}
@@ -45,10 +55,7 @@ int	read_file(char *file)
 	if (deal_with_ext_err(file) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	fd = open(file, O_RDONLY);
-	line = get_next_line(fd);
 	deal_with_lines(line, fd);
-	if (line)
-		free(line);
 	close(fd);
 	return (EXIT_SUCCESS);
 }

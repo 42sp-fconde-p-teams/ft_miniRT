@@ -20,7 +20,8 @@ SRC_FILES	= main.c \
 				parser/checker/check_extention.c \
 				engine/vector.c \
 				parser/reader/read_file.c \
-				utils/ft_atod.c
+				utils/ft_atod.c \
+				utils/ft_count_split_elements.c
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))

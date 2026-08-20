@@ -11,7 +11,8 @@ C_FILES			= ../src/sample.c \
 					../src/parser/checker/check_extention.c \
 					../src/engine/vector.c \
 					../src/parser/reader/read_file.c \
-					../src/utils/ft_atod.c
+					../src/utils/ft_atod.c \
+					../src/utils/ft_count_split_elements.c
 
 UTILS				= utils/test_log.c utils/capture_stdout.c
 
