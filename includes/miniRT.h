@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/20 19:49:59 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/20 22:17:10 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ int		check_extention(char *file_name);
 int		read_file(char *file);
 double	ft_atod(char *nptr);
 size_t	count_split_elements(char **splited);
+int		check_line(char **split_line);
 
 #endif

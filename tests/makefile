@@ -9,6 +9,7 @@ MLX					= $(MLX_DIR)/libmlx_Linux.a
 C_FILES			= ../src/sample.c \
 					../src/window/close_window.c \
 					../src/parser/checker/check_extention.c \
+					../src/parser/checker/check_line.c \
 					../src/engine/vector.c \
 					../src/parser/reader/read_file.c \
 					../src/utils/ft_atod.c \
