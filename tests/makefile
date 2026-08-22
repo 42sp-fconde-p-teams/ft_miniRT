@@ -26,6 +26,7 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 							TEST_SRCS		= $(TEST_DIR)/test-sample.c \
 												$(TEST_DIR)/test-close_window.c \
 												$(TEST_DIR)/test-check_extention.c \
+												$(TEST_DIR)/test-check_identifier.c \
 												$(TEST_DIR)/test-basic_vectors.c \
 												$(TEST_DIR)/test-ft_atod.c
 TEST_BINS		= $(TEST_SRCS:.c=.out)
