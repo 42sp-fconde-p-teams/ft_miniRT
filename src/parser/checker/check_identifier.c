@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_line.c                                       :+:      :+:    :+:   */
+/*   check_identifier.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/22 18:09:10 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/22 17:55:54 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/22 18:07:22 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
 
-int	check_line(char **split_line)
+int	check_identifier(char **line)
 {
-	int	i;
-
-	i = 0;
-
-	while (split_line[i])
-	{
-		if (check_identifier(split_line) == EXIT_SUCCESS)
-			printf("%s\n", split_line[i]);
-		i++;
-	}
-	return (EXIT_SUCCESS);
+	if (line[0][0] == 'A')
+		return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
 }

@@ -19,6 +19,7 @@ SRC_FILES	= main.c \
 				window/close_window.c \
 				parser/checker/check_extention.c \
 				parser/checker/check_line.c \
+				parser/checker/check_identifier.c \
 				engine/vector.c \
 				parser/reader/read_file.c \
 				utils/ft_atod.c \
