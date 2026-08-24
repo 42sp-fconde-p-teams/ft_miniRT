@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/18 06:21:26 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/08/22 18:43:18 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,8 @@ int		close_btn(t_mlx_wrap *mlx_wrap);
 int		check_extention(char *file_name);
 int		read_file(char *file);
 double	ft_atod(char *nptr);
+size_t	count_split_elements(char **splited);
+int		check_line(char **split_line);
+int		check_identifier(char **line);
+
 #endif
