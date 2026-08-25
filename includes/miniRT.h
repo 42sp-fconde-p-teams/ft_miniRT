@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/24 23:39:45 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/25 00:09:35 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,6 @@ size_t	ft_count_split_elements(char **splited);
 int		check_line(char **split_line);
 int		check_identifier(char **line);
 int		check_ambience(char **line);
+int		check_rgb_val(char *rgb);
 
 #endif

@@ -12,6 +12,7 @@ C_FILES			= ../src/sample.c \
 					../src/parser/checker/check_line.c \
 					../src/parser/checker/check_identifier.c \
 					../src/parser/checker/check_ambience.c \
+					../src/parser/checker/check_rgb_val.c \
 					../src/engine/vector.c \
 					../src/engine/vector_utils.c \
 					../src/engine/vector_product.c \

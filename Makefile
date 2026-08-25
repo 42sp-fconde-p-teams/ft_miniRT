@@ -21,6 +21,7 @@ SRC_FILES	= main.c \
 				parser/checker/check_line.c \
 				parser/checker/check_identifier.c \
 				parser/checker/check_ambience.c \
+				parser/checker/check_rgb_val.c \
 				engine/vector.c \
 				engine/vector_utils.c \
 				engine/vector_product.c \

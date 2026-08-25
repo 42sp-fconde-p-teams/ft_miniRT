@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_ambience.c                                   :+:      :+:    :+:   */
+/*   check_rgb_val.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/24 23:33:47 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/25 00:15:03 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/25 00:02:55 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/25 00:14:04 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
 
-int	check_ambience(char **line)
+int	check_rgb_val(char *rgb)
 {
-	if (ft_count_split_elements(line) != 3)
+	char	**split_rgb;
+
+	split_rgb = ft_split(rgb, ',');
+	if (ft_count_split_elements(split_rgb) != 3)
 		return (EXIT_FAILURE);
-	if (check_rgb_val(line[2]) == EXIT_FAILURE)
+	if (((ft_atoi(split_rgb[0]) < 0) || (ft_atoi(split_rgb[0]) > 255))
+		|| ((ft_atoi(split_rgb[1]) < 0) || (ft_atoi(split_rgb[1]) > 255))
+		|| ((ft_atoi(split_rgb[2]) < 0) || (ft_atoi(split_rgb[2]) > 255)))
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
