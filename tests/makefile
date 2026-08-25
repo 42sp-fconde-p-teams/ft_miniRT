@@ -12,6 +12,8 @@ C_FILES			= ../src/sample.c \
 					../src/parser/checker/check_line.c \
 					../src/parser/checker/check_identifier.c \
 					../src/engine/vector.c \
+					../src/engine/vector_utils.c \
+					../src/engine/vector_product.c \
 					../src/parser/reader/read_file.c \
 					../src/utils/ft_atod.c \
 					../src/utils/ft_count_split_elements.c
@@ -28,7 +30,8 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-check_extention.c \
 												$(TEST_DIR)/test-check_identifier.c \
 												$(TEST_DIR)/test-basic_vectors.c \
-												$(TEST_DIR)/test-ft_atod.c
+												$(TEST_DIR)/test-ft_atod.c \
+												$(TEST_DIR)/test-product_vectors.c
 TEST_BINS		= $(TEST_SRCS:.c=.out)
 REPORT_LOG	= test_report.log
 

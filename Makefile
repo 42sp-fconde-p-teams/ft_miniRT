@@ -21,6 +21,8 @@ SRC_FILES	= main.c \
 				parser/checker/check_line.c \
 				parser/checker/check_identifier.c \
 				engine/vector.c \
+				engine/vector_utils.c \
+				engine/vector_product.c \
 				parser/reader/read_file.c \
 				utils/ft_atod.c \
 				utils/ft_count_split_elements.c
