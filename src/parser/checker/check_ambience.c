@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_line.c                                       :+:      :+:    :+:   */
+/*   check_ambience.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/24 23:44:24 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/24 23:33:47 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/24 23:39:27 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
 
-int	check_line(char **split_line)
+int	check_ambience(char **line)
 {
-	// int	i;
-
-	// i = 0;
-	if (check_identifier(split_line) == EXIT_SUCCESS)
-	{
-		if ((split_line[0][0] == 'A')
-			&& (check_ambience(split_line) == EXIT_SUCCESS))
-		{
-			printf("TESTE OK\n");
-			return (EXIT_SUCCESS);
-		}
-
-		// while (split_line[i])
-		// {
-		// 	printf("EL: %s\n", split_line[i]);
-		// 	i++;
-		// }
-	}
+	if (ft_count_split_elements(line) == 3)
+		return (EXIT_SUCCESS);
 	return (EXIT_FAILURE);
 }
