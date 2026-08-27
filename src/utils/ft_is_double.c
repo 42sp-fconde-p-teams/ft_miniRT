@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/27 14:38:11 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/27 15:01:15 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/27 15:10:38 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_is_double(char *str)
 		else if (*str == '.')
 		{
 			str++;
+			if (!*str)
+				return (EXIT_FAILURE);
 			while (*str)
 			{
 				if (ft_isdigit(*str))
