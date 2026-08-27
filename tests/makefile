@@ -11,12 +11,19 @@ C_FILES			= ../src/sample.c \
 					../src/parser/checker/check_extention.c \
 					../src/parser/checker/check_line.c \
 					../src/parser/checker/check_identifier.c \
+					../src/parser/checker/check_ambience.c \
+					../src/parser/checker/check_rgb_val.c \
+					../src/parser/checker/check_num_double_in_range.c \
 					../src/engine/vector.c \
 					../src/engine/vector_utils.c \
 					../src/engine/vector_product.c \
 					../src/parser/reader/read_file.c \
 					../src/utils/ft_atod.c \
-					../src/utils/ft_count_split_elements.c
+					../src/utils/ft_count_split_elements.c \
+					../src/utils/ft_double_equals.c \
+					../src/utils/ft_double_greater_than.c \
+					../src/utils/ft_double_less_than.c \
+					../src/utils/ft_is_double.c
 
 UTILS				= utils/test_log.c utils/capture_stdout.c
 
@@ -29,9 +36,14 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-close_window.c \
 												$(TEST_DIR)/test-check_extention.c \
 												$(TEST_DIR)/test-check_identifier.c \
+												$(TEST_DIR)/test-check_ambience.c \
+												$(TEST_DIR)/test-check_num_double_in_range.c \
+												$(TEST_DIR)/test-check_rgb_val.c \
 												$(TEST_DIR)/test-basic_vectors.c \
 												$(TEST_DIR)/test-ft_atod.c \
-												$(TEST_DIR)/test-product_vectors.c
+												$(TEST_DIR)/test-product_vectors.c \
+												$(TEST_DIR)/test-ft_is_double.c
+
 TEST_BINS		= $(TEST_SRCS:.c=.out)
 REPORT_LOG	= test_report.log
 

@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_utils.c                                     :+:      :+:    :+:   */
+/*   ft_is_double.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 05:50:10 by thfernan          #+#    #+#             */
-/*   Updated: 2026/08/27 12:58:26 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/27 14:38:11 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/27 16:07:07 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/miniRT.h"
 
-int	vec3_almost_equal(t_vec3 a, t_vec3 b)
+int	ft_is_double(char *str)
 {
-	if (ft_double_equals(a.x, b.x) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
-	if (ft_double_equals(a.y, b.y) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
-	if (ft_double_equals(a.z, b.z) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
-	return (EXIT_FAILURE);
+	if (!ft_isdigit(*str))
+		return (EXIT_FAILURE);
+	if (!ft_strrchr(str, '.'))
+		return (EXIT_FAILURE);
+	while (*str)
+	{
+		if (ft_isdigit(*str))
+			str++;
+		else if (*str == '.')
+		{
+			str++;
+			if (!*str)
+				return (EXIT_FAILURE);
+			while (*str)
+			{
+				if (ft_isdigit(*str))
+					str++;
+				else
+					return (EXIT_FAILURE);
+			}
+		}
+	}
+	return (EXIT_SUCCESS);
 }

@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_utils.c                                     :+:      :+:    :+:   */
+/*   check_num_double_in_range.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 05:50:10 by thfernan          #+#    #+#             */
-/*   Updated: 2026/08/27 12:58:26 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/27 15:36:23 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/27 15:46:30 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/miniRT.h"
+#include "../../../includes/miniRT.h"
 
-int	vec3_almost_equal(t_vec3 a, t_vec3 b)
+int	check_num_double_in_range(double min, double max, double num)
 {
-	if (ft_double_equals(a.x, b.x) == EXIT_SUCCESS)
+	if (ft_double_greater_than(num, max) == EXIT_FAILURE
+		&& ft_double_less_than(num, min) == EXIT_FAILURE)
 		return (EXIT_SUCCESS);
-	if (ft_double_equals(a.y, b.y) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
-	if (ft_double_equals(a.z, b.z) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
-	return (EXIT_FAILURE);
+	else
+		return (EXIT_FAILURE);
 }

@@ -20,12 +20,19 @@ SRC_FILES	= main.c \
 				parser/checker/check_extention.c \
 				parser/checker/check_line.c \
 				parser/checker/check_identifier.c \
+				parser/checker/check_ambience.c \
+				parser/checker/check_rgb_val.c \
+				parser/checker/check_num_double_in_range.c \
 				engine/vector.c \
 				engine/vector_utils.c \
 				engine/vector_product.c \
 				parser/reader/read_file.c \
 				utils/ft_atod.c \
-				utils/ft_count_split_elements.c
+				utils/ft_count_split_elements.c \
+				utils/ft_double_equals.c \
+				utils/ft_double_greater_than.c \
+				utils/ft_double_less_than.c \
+				utils/ft_is_double.c
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))

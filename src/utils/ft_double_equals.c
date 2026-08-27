@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_utils.c                                     :+:      :+:    :+:   */
+/*   ft_double_equals.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 05:50:10 by thfernan          #+#    #+#             */
-/*   Updated: 2026/08/27 12:58:26 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/27 12:34:01 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/27 13:01:11 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/miniRT.h"
 
-int	vec3_almost_equal(t_vec3 a, t_vec3 b)
+int	ft_double_equals(double d_a, double d_b)
 {
-	if (ft_double_equals(a.x, b.x) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
-	if (ft_double_equals(a.y, b.y) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
-	if (ft_double_equals(a.z, b.z) == EXIT_SUCCESS)
+	if (fabs(d_a - d_b) >= EPSILON)
 		return (EXIT_SUCCESS);
 	return (EXIT_FAILURE);
 }

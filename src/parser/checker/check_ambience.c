@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_utils.c                                     :+:      :+:    :+:   */
+/*   check_ambience.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 05:50:10 by thfernan          #+#    #+#             */
-/*   Updated: 2026/08/27 12:58:26 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/24 23:33:47 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/27 16:00:43 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/miniRT.h"
+#include "../../../includes/miniRT.h"
 
-int	vec3_almost_equal(t_vec3 a, t_vec3 b)
+int	check_ambience(char **line)
 {
-	if (ft_double_equals(a.x, b.x) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
-	if (ft_double_equals(a.y, b.y) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
-	if (ft_double_equals(a.z, b.z) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
-	return (EXIT_FAILURE);
+	if (ft_count_split_elements(line) != 3)
+		return (EXIT_FAILURE);
+	if (ft_is_double(line[1]) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	if (check_num_double_in_range(0.0, 1.0, ft_atod(line[1])) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	if (check_rgb_val(line[2]) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }

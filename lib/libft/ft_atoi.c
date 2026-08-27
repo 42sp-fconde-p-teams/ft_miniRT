@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 20:02:19 by fconde-p          #+#    #+#             */
-/*   Updated: 2025/07/27 18:52:14 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/25 12:45:39 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_atoi(const char *nptr)
 	ptr_sign = &sign;
 	sign = 1;
 	acc = 0;
-	while (*nptr >= 0 && *nptr <= 32)
+	while (*nptr != '\0' && *nptr <= 32)
 		nptr++;
 	if (ft_isalpha(*nptr))
 		return (0);
