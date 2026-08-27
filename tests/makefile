@@ -19,7 +19,9 @@ C_FILES			= ../src/sample.c \
 					../src/parser/reader/read_file.c \
 					../src/utils/ft_atod.c \
 					../src/utils/ft_count_split_elements.c \
-					../src/utils/ft_double_equals.c
+					../src/utils/ft_double_equals.c \
+					../src/utils/ft_double_greater_than.c \
+					../src/utils/ft_double_less_than.c
 
 UTILS				= utils/test_log.c utils/capture_stdout.c
 

@@ -28,7 +28,9 @@ SRC_FILES	= main.c \
 				parser/reader/read_file.c \
 				utils/ft_atod.c \
 				utils/ft_count_split_elements.c \
-				utils/ft_double_equals.c
+				utils/ft_double_equals.c \
+				utils/ft_double_greater_than.c \
+				utils/ft_double_less_than.c \
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
