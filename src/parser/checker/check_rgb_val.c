@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 00:02:55 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/25 13:01:43 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/27 13:00:49 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	check_rgb_val(char *rgb)
 			return (EXIT_FAILURE);
 		i++;
 	}
-	
 	if (ft_count_split_elements(split_rgb) != 3)
 		return (EXIT_FAILURE);
 	if (((ft_atoi(split_rgb[0]) < 0) || (ft_atoi(split_rgb[0]) > 255))

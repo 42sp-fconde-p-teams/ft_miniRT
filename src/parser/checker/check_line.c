@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/24 23:44:24 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/27 13:00:24 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	check_line(char **split_line)
 {
-	// int	i;
-
-	// i = 0;
 	if (check_identifier(split_line) == EXIT_SUCCESS)
 	{
 		if ((split_line[0][0] == 'A')
@@ -25,12 +22,6 @@ int	check_line(char **split_line)
 			printf("TESTE OK\n");
 			return (EXIT_SUCCESS);
 		}
-
-		// while (split_line[i])
-		// {
-		// 	printf("EL: %s\n", split_line[i]);
-		// 	i++;
-		// }
 	}
 	return (EXIT_FAILURE);
 }
