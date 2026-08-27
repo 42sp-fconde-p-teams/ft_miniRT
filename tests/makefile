@@ -13,6 +13,7 @@ C_FILES			= ../src/sample.c \
 					../src/parser/checker/check_identifier.c \
 					../src/parser/checker/check_ambience.c \
 					../src/parser/checker/check_rgb_val.c \
+					../src/parser/checker/check_num_double_in_range.c \
 					../src/engine/vector.c \
 					../src/engine/vector_utils.c \
 					../src/engine/vector_product.c \
@@ -36,6 +37,7 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-check_extention.c \
 												$(TEST_DIR)/test-check_identifier.c \
 												$(TEST_DIR)/test-check_ambience.c \
+												$(TEST_DIR)/test-check_num_double_in_range.c \
 												$(TEST_DIR)/test-check_rgb_val.c \
 												$(TEST_DIR)/test-basic_vectors.c \
 												$(TEST_DIR)/test-ft_atod.c \
