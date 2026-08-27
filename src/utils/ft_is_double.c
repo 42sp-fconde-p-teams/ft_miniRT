@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/27 14:38:11 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/27 15:10:38 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/27 16:07:07 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_is_double(char *str)
 				if (ft_isdigit(*str))
 					str++;
 				else
-					return(EXIT_FAILURE);
+					return (EXIT_FAILURE);
 			}
 		}
 	}
