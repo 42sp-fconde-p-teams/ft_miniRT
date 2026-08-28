@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_line.c                                       :+:      :+:    :+:   */
+/*   check_camera.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/28 11:57:46 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/28 11:56:01 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/28 12:00:33 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
 
-int	check_line(char **split_line)
+int	check_camera(char **line)
 {
-	if (check_identifier(split_line) == EXIT_SUCCESS)
-	{
-		if ((split_line[0][0] == 'A')
-			&& (check_ambience(split_line) == EXIT_SUCCESS))
-		{
-			printf("AMBIENCE OK\n");
-			return (EXIT_SUCCESS);
-		}
-		else if ((split_line[0][0] == 'C')
-			&& (check_camera(split_line) == EXIT_SUCCESS))
-		{
-			printf("CAMERA OK\n");
-			return (EXIT_SUCCESS);
-		}
-	}
-	return (EXIT_FAILURE);
+	if (ft_count_split_elements(line) != 4)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
