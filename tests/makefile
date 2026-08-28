@@ -14,6 +14,7 @@ C_FILES			= ../src/sample.c \
 					../src/parser/checker/check_ambience.c \
 					../src/parser/checker/check_camera.c \
 					../src/parser/checker/check_rgb_val.c \
+					../src/parser/checker/check_coordinates.c \
 					../src/parser/checker/check_num_double_in_range.c \
 					../src/engine/vector.c \
 					../src/engine/vector_utils.c \
@@ -41,6 +42,7 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-check_camera.c \
 												$(TEST_DIR)/test-check_num_double_in_range.c \
 												$(TEST_DIR)/test-check_rgb_val.c \
+												$(TEST_DIR)/test-check_coordinates.c \
 												$(TEST_DIR)/test-basic_vectors.c \
 												$(TEST_DIR)/test-ft_atod.c \
 												$(TEST_DIR)/test-product_vectors.c \
