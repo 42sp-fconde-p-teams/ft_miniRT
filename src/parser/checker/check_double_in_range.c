@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_num_double_in_range.c                        :+:      :+:    :+:   */
+/*   check_double_in_range.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../../../includes/miniRT.h"
 
-int	check_num_double_in_range(double min, double max, double num)
+int	check_double_in_range(double min, double max, double num)
 {
 	if (ft_double_greater_than(num, max) == EXIT_FAILURE
 		&& ft_double_less_than(num, min) == EXIT_FAILURE)
