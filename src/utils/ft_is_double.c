@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/27 14:38:11 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/27 16:07:07 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/28 14:12:08 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_is_double(char *str)
 {
+	if (*str == '-')
+		str++;
 	if (!ft_isdigit(*str))
 		return (EXIT_FAILURE);
 	if (!ft_strrchr(str, '.'))
