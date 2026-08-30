@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_num_double_in_range.c                        :+:      :+:    :+:   */
+/*   check_coordinates.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/27 15:36:23 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/27 15:46:30 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/28 12:13:38 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/28 14:46:27 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
 
-int	check_num_double_in_range(double min, double max, double num)
+int	check_coordinates(char *coord)
 {
-	if (ft_double_greater_than(num, max) == EXIT_FAILURE
-		&& ft_double_less_than(num, min) == EXIT_FAILURE)
-		return (EXIT_SUCCESS);
-	else
+	char	**split_coord;
+	int		i;
+
+	i = 0;
+	split_coord = ft_split(coord, ',');
+	while (split_coord[i])
+	{
+		if (ft_is_double(split_coord[i]) == EXIT_FAILURE)
+		{
+			ft_free_array(split_coord);
+			return (EXIT_FAILURE);
+		}
+		i++;
+	}
+	if (ft_count_split_elements(split_coord) != 3)
+	{
+		ft_free_array(split_coord);
 		return (EXIT_FAILURE);
+	}
+	ft_free_array(split_coord);
+	return (EXIT_SUCCESS);
 }

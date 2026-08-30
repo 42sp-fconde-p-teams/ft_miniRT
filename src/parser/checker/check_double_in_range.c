@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_ambience.c                                   :+:      :+:    :+:   */
+/*   check_double_in_range.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/24 23:33:47 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/28 14:42:03 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/27 15:36:23 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/27 15:46:30 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
 
-int	check_ambience(char **line)
+int	check_double_in_range(double min, double max, double num)
 {
-	if (ft_count_split_elements(line) != 3)
+	if (ft_double_greater_than(num, max) == EXIT_FAILURE
+		&& ft_double_less_than(num, min) == EXIT_FAILURE)
+		return (EXIT_SUCCESS);
+	else
 		return (EXIT_FAILURE);
-	if (ft_is_double(line[1]) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	if (check_double_in_range(0.0, 1.0, ft_atod(line[1])) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	if (check_rgb_val(line[2]) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
 }

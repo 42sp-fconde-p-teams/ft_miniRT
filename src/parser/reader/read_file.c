@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 13:03:49 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/22 19:06:08 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/28 15:10:21 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,6 @@ static int	deal_with_ext_err(char *file)
 	return (EXIT_SUCCESS);
 }
 
-static void	free_split(char **split)
-{
-	size_t	i;
-
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-}
-
 static int	deal_with_lines(char *line, int fd)
 {
 	char	**split_line;
@@ -47,7 +32,7 @@ static int	deal_with_lines(char *line, int fd)
 	{
 		split_line = ft_split(line, ' ');
 		check_line(&split_line[0]);
-		free_split(split_line);
+		ft_free_array(split_line);
 		free(line);
 		line = get_next_line(fd);
 	}
