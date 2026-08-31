@@ -6,8 +6,7 @@ MLX_DIR			= ../lib/minilibx
 MLX					= $(MLX_DIR)/libmlx_Linux.a
 
 # IMPORTANTE: Garanta que nenhum desses arquivos tenha uma função main()
-C_FILES			= ../src/sample.c \
-					../src/window/close_window.c \
+C_FILES			= ../src/window/close_window.c \
 					../src/parser/checker/check_extention.c \
 					../src/parser/checker/check_line.c \
 					../src/parser/checker/check_ambience.c \
@@ -35,8 +34,7 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 
 							# Tests section
 							TEST_DIR		= ./
-							TEST_SRCS		= $(TEST_DIR)/test-sample.c \
-												$(TEST_DIR)/test-close_window.c \
+							TEST_SRCS		= $(TEST_DIR)/test-close_window.c \
 												$(TEST_DIR)/test-check_extention.c \
 												$(TEST_DIR)/test-check_ambience.c \
 												$(TEST_DIR)/test-check_camera.c \
