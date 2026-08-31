@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/30 22:44:05 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/30 22:47:47 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 static int	check_unique_elements(char **split_line)
 {
-		if (check_ambience(split_line) == EXIT_SUCCESS)
-		{
-			printf("AMBIENCE OK\n");
-			return (EXIT_SUCCESS);
-		}
-		else if (check_camera(split_line) == EXIT_SUCCESS)
-		{
-			printf("CAMERA OK\n");
-			return (EXIT_SUCCESS);
-		}
-		else if (check_light(split_line) == EXIT_SUCCESS)
-		{
-			printf("LIGHT OK\n");
-			return (EXIT_SUCCESS);
-		}
-		else
-			return (EXIT_FAILURE);
+	if (check_ambience(split_line) == EXIT_SUCCESS)
+	{
+		printf("AMBIENCE OK\n");
+		return (EXIT_SUCCESS);
+	}
+	else if (check_camera(split_line) == EXIT_SUCCESS)
+	{
+		printf("CAMERA OK\n");
+		return (EXIT_SUCCESS);
+	}
+	else if (check_light(split_line) == EXIT_SUCCESS)
+	{
+		printf("LIGHT OK\n");
+		return (EXIT_SUCCESS);
+	}
+	else
+		return (EXIT_FAILURE);
 }
 
 int	check_solid_elements(char **split_line)

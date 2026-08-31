@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 23:33:47 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/30 21:56:51 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/30 22:48:53 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_ambience(char **line)
 {
-	if((line[0][0] != 'A') || (ft_strlen(line[0]) != 1))
+	if ((line[0][0] != 'A') || (ft_strlen(line[0]) != 1))
 		return (EXIT_FAILURE);
 	if (ft_count_split_elements(line) != 3)
 		return (EXIT_FAILURE);
