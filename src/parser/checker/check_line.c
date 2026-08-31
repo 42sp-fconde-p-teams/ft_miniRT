@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/30 22:41:11 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/30 22:44:05 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ static int	check_unique_elements(char **split_line)
 
 int	check_solid_elements(char **split_line)
 {
-	if ((split_line[0][0] == 's' && split_line[0][1] == 'p')
-		&& (check_sphere(split_line) == EXIT_SUCCESS))
+	if (check_sphere(split_line) == EXIT_SUCCESS)
 	{
 		printf("SPHERE OK\n");
 		return (EXIT_SUCCESS);
