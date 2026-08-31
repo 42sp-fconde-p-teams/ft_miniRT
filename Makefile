@@ -14,15 +14,14 @@ LIBS		= -L./lib/libft -lft -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 # Source files
 SRC_FILES	= main.c \
-				sample.c \
 				window/init_window.c \
 				window/close_window.c \
 				parser/checker/check_extention.c \
 				parser/checker/check_line.c \
-				parser/checker/check_identifier.c \
 				parser/checker/check_ambience.c \
 				parser/checker/check_camera.c \
 				parser/checker/check_light.c \
+				parser/checker/check_sphere.c \
 				parser/checker/check_rgb_val.c \
 				parser/checker/check_coordinates.c \
 				parser/checker/check_double_in_range.c \

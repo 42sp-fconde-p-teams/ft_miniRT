@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/30 19:48:41 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/30 22:53:17 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ t_vec3	vec3_mul(t_vec3 v, double t);
 double	vec3_dot(t_vec3 a, t_vec3 b);
 int		vec3_almost_equal(t_vec3 a, t_vec3 b);
 
-int		sample_return(int hard_result);
 int		init_window(void);
 int		close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
 int		close_btn(t_mlx_wrap *mlx_wrap);
@@ -92,7 +91,6 @@ int		read_file(char *file);
 double	ft_atod(char *nptr);
 size_t	ft_count_split_elements(char **splited);
 int		check_line(char **split_line);
-int		check_identifier(char **line);
 int		check_ambience(char **line);
 int		check_rgb_val(char *rgb);
 int		ft_double_equals(double d_a, double d_b);
@@ -102,6 +100,7 @@ int		ft_is_double(char *str);
 int		check_double_in_range(double min, double max, double num);
 int		check_camera(char **line);
 int		check_light(char **line);
+int		check_sphere(char **line);
 int		check_coordinates(char *coord);
 
 #endif

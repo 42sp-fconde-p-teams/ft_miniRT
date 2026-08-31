@@ -6,14 +6,13 @@ MLX_DIR			= ../lib/minilibx
 MLX					= $(MLX_DIR)/libmlx_Linux.a
 
 # IMPORTANTE: Garanta que nenhum desses arquivos tenha uma função main()
-C_FILES			= ../src/sample.c \
-					../src/window/close_window.c \
+C_FILES			= ../src/window/close_window.c \
 					../src/parser/checker/check_extention.c \
 					../src/parser/checker/check_line.c \
-					../src/parser/checker/check_identifier.c \
 					../src/parser/checker/check_ambience.c \
 					../src/parser/checker/check_camera.c \
 					../src/parser/checker/check_light.c \
+					../src/parser/checker/check_sphere.c \
 					../src/parser/checker/check_rgb_val.c \
 					../src/parser/checker/check_coordinates.c \
 					../src/parser/checker/check_double_in_range.c \
@@ -35,13 +34,12 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 
 							# Tests section
 							TEST_DIR		= ./
-							TEST_SRCS		= $(TEST_DIR)/test-sample.c \
-												$(TEST_DIR)/test-close_window.c \
+							TEST_SRCS		= $(TEST_DIR)/test-close_window.c \
 												$(TEST_DIR)/test-check_extention.c \
-												$(TEST_DIR)/test-check_identifier.c \
 												$(TEST_DIR)/test-check_ambience.c \
 												$(TEST_DIR)/test-check_camera.c \
 												$(TEST_DIR)/test-check_light.c \
+												$(TEST_DIR)/test-check_sphere.c \
 												$(TEST_DIR)/test-check_double_in_range.c \
 												$(TEST_DIR)/test-check_rgb_val.c \
 												$(TEST_DIR)/test-check_coordinates.c \

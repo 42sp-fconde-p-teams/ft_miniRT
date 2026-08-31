@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 19:42:50 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/30 19:51:34 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/30 22:48:13 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	check_light(char **line)
 {
+	if (line[0][0] != 'L' || ft_strlen(line[0]) != 1)
+		return (EXIT_FAILURE);
 	if (ft_count_split_elements(line) != 3)
 		return (EXIT_FAILURE);
 	if (check_coordinates(line[1]) == EXIT_FAILURE)

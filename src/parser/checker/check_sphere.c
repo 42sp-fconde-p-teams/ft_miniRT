@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_identifier.c                                 :+:      :+:    :+:   */
+/*   check_sphere.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/22 17:55:54 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/22 18:44:12 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/08/30 21:08:25 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/08/30 22:46:43 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
 
-int	check_identifier(char **line)
+int	check_sphere(char **line)
 {
-	if (line[0][0] == 'A' || line[0][0] == 'C' || line[0][0] == 'L')
-		return (EXIT_SUCCESS);
-	else if ((line[0][0] == 's' && line[0][1] == 'p')
-		|| (line[0][0] == 'p' && line[0][1] == 'l')
-		|| (line[0][0] == 'c' && line[0][1] == 'y'))
-		return (EXIT_SUCCESS);
-	return (EXIT_FAILURE);
+	if (line[0][0] != 's' || line[0][1] != 'p'
+		|| ft_strlen(line[0]) != 2)
+		return (EXIT_FAILURE);
+	if (ft_count_split_elements(line) != 4)
+		return (EXIT_FAILURE);
+	if (check_coordinates(line[1]) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	if (ft_is_double(line[2]) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	if (check_rgb_val(line[3]) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
