@@ -19,7 +19,6 @@ SRC_FILES	= main.c \
 				window/close_window.c \
 				parser/checker/check_extention.c \
 				parser/checker/check_line.c \
-				parser/checker/check_identifier.c \
 				parser/checker/check_ambience.c \
 				parser/checker/check_camera.c \
 				parser/checker/check_light.c \

@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/30 21:09:30 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/30 21:21:31 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ int		read_file(char *file);
 double	ft_atod(char *nptr);
 size_t	ft_count_split_elements(char **splited);
 int		check_line(char **split_line);
-int		check_identifier(char **line);
 int		check_ambience(char **line);
 int		check_rgb_val(char *rgb);
 int		ft_double_equals(double d_a, double d_b);
