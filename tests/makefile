@@ -14,6 +14,7 @@ C_FILES			= ../src/sample.c \
 					../src/parser/checker/check_ambience.c \
 					../src/parser/checker/check_camera.c \
 					../src/parser/checker/check_light.c \
+					../src/parser/checker/check_sphere.c \
 					../src/parser/checker/check_rgb_val.c \
 					../src/parser/checker/check_coordinates.c \
 					../src/parser/checker/check_double_in_range.c \
@@ -42,6 +43,7 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-check_ambience.c \
 												$(TEST_DIR)/test-check_camera.c \
 												$(TEST_DIR)/test-check_light.c \
+												$(TEST_DIR)/test-check_sphere.c \
 												$(TEST_DIR)/test-check_double_in_range.c \
 												$(TEST_DIR)/test-check_rgb_val.c \
 												$(TEST_DIR)/test-check_coordinates.c \
