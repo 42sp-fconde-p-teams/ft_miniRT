@@ -14,6 +14,7 @@ C_FILES			= ../src/window/close_window.c \
 					../src/parser/checker/check_light.c \
 					../src/parser/checker/check_sphere.c \
 					../src/parser/checker/check_plain.c \
+					../src/parser/checker/check_cylinder.c \
 					../src/parser/checker/check_rgb_val.c \
 					../src/parser/checker/check_coordinates.c \
 					../src/parser/checker/check_coordinates_in_range.c \
