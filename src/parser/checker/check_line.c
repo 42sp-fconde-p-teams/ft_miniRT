@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/30 22:47:47 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/01 00:56:23 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ int	check_solid_elements(char **split_line)
 	if (check_sphere(split_line) == EXIT_SUCCESS)
 	{
 		printf("SPHERE OK\n");
+		return (EXIT_SUCCESS);
+	}
+	else if (check_plain(split_line) == EXIT_SUCCESS)
+	{
+		printf("PLAIN OK\n");
+		return (EXIT_SUCCESS);
+	}
+	else if (check_cylinder(split_line) == EXIT_SUCCESS)
+	{
+		printf("CYLINDER OK\n");
 		return (EXIT_SUCCESS);
 	}
 	else

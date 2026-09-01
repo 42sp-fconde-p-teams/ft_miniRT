@@ -22,8 +22,11 @@ SRC_FILES	= main.c \
 				parser/checker/check_camera.c \
 				parser/checker/check_light.c \
 				parser/checker/check_sphere.c \
+				parser/checker/check_plain.c \
+				parser/checker/check_cylinder.c \
 				parser/checker/check_rgb_val.c \
 				parser/checker/check_coordinates.c \
+				parser/checker/check_coordinates_in_range.c \
 				parser/checker/check_double_in_range.c \
 				engine/vector.c \
 				engine/vector_utils.c \
