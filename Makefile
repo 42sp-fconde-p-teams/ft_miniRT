@@ -25,6 +25,7 @@ SRC_FILES	= main.c \
 				parser/checker/check_plain.c \
 				parser/checker/check_rgb_val.c \
 				parser/checker/check_coordinates.c \
+				parser/checker/check_coordinates_in_range.c \
 				parser/checker/check_double_in_range.c \
 				engine/vector.c \
 				engine/vector_utils.c \

@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/31 21:52:05 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/08/31 23:17:32 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,6 @@ int		check_light(char **line);
 int		check_sphere(char **line);
 int		check_coordinates(char *coord);
 int		check_plain(char **line);
+int		check_coordinates_in_range(double min, double max, char *coord);
 
 #endif
