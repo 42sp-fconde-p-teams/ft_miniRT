@@ -44,6 +44,7 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-check_light.c \
 												$(TEST_DIR)/test-check_sphere.c \
 												$(TEST_DIR)/test-check_plain.c \
+												$(TEST_DIR)/test-check_cylinder.c \
 												$(TEST_DIR)/test-check_double_in_range.c \
 												$(TEST_DIR)/test-check_rgb_val.c \
 												$(TEST_DIR)/test-check_coordinates.c \
