@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 13:03:49 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/28 15:10:21 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/03 18:41:03 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,22 @@ static int	deal_with_ext_err(char *file)
 static int	deal_with_lines(char *line, int fd)
 {
 	char	**split_line;
+	int		i;
 
+	i = 0;
 	split_line = NULL;
 	line = get_next_line(fd);
 	while (line)
 	{
+		i = ft_strlen(line) - 1;
+		if (i == 0)
+		{
+			free(line);
+			line = get_next_line(fd);
+			continue ;
+		}
+		printf("LINE LENGTH: %d\n", i);
+		line[i] = ' ';
 		split_line = ft_split(line, ' ');
 		check_line(&split_line[0]);
 		ft_free_array(split_line);
