@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 13:03:49 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/03 18:41:03 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/03 18:51:45 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ static int	deal_with_ext_err(char *file)
 	return (EXIT_SUCCESS);
 }
 
-static int	deal_with_lines(char *line, int fd)
+static int	deal_with_lines(char *line, int fd, char **split_line)
 {
-	char	**split_line;
 	int		i;
 
 	i = 0;
-	split_line = NULL;
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -56,13 +54,15 @@ int	read_file(char *file)
 {
 	int		fd;
 	char	*line;
+	char	**split_line;
 
 	fd = 0;
 	line = NULL;
+	split_line = NULL;
 	if (deal_with_ext_err(file) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	fd = open(file, O_RDONLY);
-	deal_with_lines(line, fd);
+	deal_with_lines(line, fd, split_line);
 	close(fd);
 	return (EXIT_SUCCESS);
 }
