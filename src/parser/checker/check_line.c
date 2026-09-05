@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/01 00:56:23 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/05 18:58:12 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	check_line(char **split_line)
 		return (EXIT_SUCCESS);
 	else
 	{
-		printf("ERROR: invalid input parameters!");
+		printf("ERROR\nInvalid input parameters!\n");
 		return (EXIT_FAILURE);
 	}
 }
