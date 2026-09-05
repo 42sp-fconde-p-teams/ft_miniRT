@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/01 00:57:55 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/05 19:22:51 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int		ft_double_equals(double d_a, double d_b);
 int		ft_double_greater_than(double d_a, double d_b);
 int		ft_double_less_than(double d_a, double d_b);
 int		ft_is_double(char *str);
+int		ft_is_int(char *str);
 int		check_double_in_range(double min, double max, double num);
 int		check_camera(char **line);
 int		check_light(char **line);
