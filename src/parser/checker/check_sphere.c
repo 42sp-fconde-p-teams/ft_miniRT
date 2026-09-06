@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 21:08:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/30 22:46:43 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/06 00:25:34 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	check_sphere(char **line)
 		return (EXIT_FAILURE);
 	if (check_coordinates(line[1]) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	if (ft_is_double(line[2]) == EXIT_FAILURE)
+	if ((ft_is_double(line[2]) == EXIT_FAILURE)
+		&& (ft_is_int(line[2]) == EXIT_FAILURE))
 		return (EXIT_FAILURE);
 	if (check_rgb_val(line[3]) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
