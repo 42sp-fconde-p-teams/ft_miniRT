@@ -15,7 +15,7 @@ int	should_fail_for_identifier_with_capital_char(void)
 {
 	char	*line[] = {"Pl", "0.0,0.0,-10.0", "0.0,1.0,0.0", "10,0,255", NULL};
 
-	if (check_sphere(line) == EXIT_FAILURE)
+	if (check_plain(line) == EXIT_FAILURE)
 		return (EXIT_SUCCESS);
 	else
 		return (EXIT_FAILURE);
@@ -25,7 +25,7 @@ int	should_fail_for_identifier_with_more_than_two_char(void)
 {
 	char	*line[] = {"pll", "0.0,0.0,-10.0", "0.0,1.0,0.0", "10,0,255", NULL};
 
-	if (check_sphere(line) == EXIT_FAILURE)
+	if (check_plain(line) == EXIT_FAILURE)
 		return (EXIT_SUCCESS);
 	else
 		return (EXIT_FAILURE);

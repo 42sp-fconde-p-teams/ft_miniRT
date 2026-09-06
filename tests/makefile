@@ -14,6 +14,7 @@ C_FILES			= ../src/window/close_window.c \
 					../src/parser/checker/check_light.c \
 					../src/parser/checker/check_sphere.c \
 					../src/parser/checker/check_plain.c \
+					../src/parser/checker/check_cylinder.c \
 					../src/parser/checker/check_rgb_val.c \
 					../src/parser/checker/check_coordinates.c \
 					../src/parser/checker/check_coordinates_in_range.c \
@@ -43,6 +44,7 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-check_light.c \
 												$(TEST_DIR)/test-check_sphere.c \
 												$(TEST_DIR)/test-check_plain.c \
+												$(TEST_DIR)/test-check_cylinder.c \
 												$(TEST_DIR)/test-check_double_in_range.c \
 												$(TEST_DIR)/test-check_rgb_val.c \
 												$(TEST_DIR)/test-check_coordinates.c \
