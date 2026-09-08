@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_light.c                                      :+:      :+:    :+:   */
+/*   ft_is_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/30 19:42:50 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/06 00:36:52 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/09/05 19:12:25 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/09/05 19:31:31 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/miniRT.h"
+#include "../../includes/miniRT.h"
 
-int	check_light(char **line)
+int	ft_is_int(char *str)
 {
-	if ((line[0][0] != 'L') || (ft_strlen(line[0]) != 1))
+	if (*str == '-')
+		str++;
+	if (!ft_isdigit(*str))
 		return (EXIT_FAILURE);
-	if (ft_count_split_elements(line) != 3)
-		return (EXIT_FAILURE);
-	if (check_coordinates(line[1]) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	if (check_double_in_range(0.0, 1.0, ft_atod(line[2])) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
+	while (*str)
+	{
+		if (ft_isdigit(*str))
+			str++;
+		else
+			return (EXIT_FAILURE);
+	}
 	return (EXIT_SUCCESS);
 }

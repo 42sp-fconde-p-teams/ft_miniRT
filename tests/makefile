@@ -28,7 +28,8 @@ C_FILES			= ../src/window/close_window.c \
 					../src/utils/ft_double_equals.c \
 					../src/utils/ft_double_greater_than.c \
 					../src/utils/ft_double_less_than.c \
-					../src/utils/ft_is_double.c
+					../src/utils/ft_is_double.c \
+					../src/utils/ft_is_int.c
 
 UTILS				= utils/test_log.c utils/capture_stdout.c
 
@@ -51,7 +52,8 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-basic_vectors.c \
 												$(TEST_DIR)/test-ft_atod.c \
 												$(TEST_DIR)/test-product_vectors.c \
-												$(TEST_DIR)/test-ft_is_double.c
+												$(TEST_DIR)/test-ft_is_double.c \
+												$(TEST_DIR)/test-ft_is_int.c
 
 TEST_BINS		= $(TEST_SRCS:.c=.out)
 REPORT_LOG	= test_report.log
