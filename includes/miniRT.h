@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/05 19:22:51 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/07 21:41:31 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ typedef struct s_vec3
 	double	z;
 }	t_vec3;
 
+typedef struct s_rgb
+{
+	int	red;
+	int	green;
+	int	blue;
+}	t_rgb;
+
 typedef struct s_ray
 {
 	t_vec3	origin;
@@ -45,7 +52,7 @@ typedef struct s_sphere
 {
 	t_vec3	center;
 	double	radius;
-	t_vec3	color;
+	t_rgb	color;
 }	t_sphere;
 
 typedef struct s_camera
