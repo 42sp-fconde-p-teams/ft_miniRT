@@ -28,6 +28,7 @@ SRC_FILES	= main.c \
 				parser/checker/check_coordinates.c \
 				parser/checker/check_coordinates_in_range.c \
 				parser/checker/check_double_in_range.c \
+				parser/setter/set_ambience.c \
 				engine/vector.c \
 				engine/vector_utils.c \
 				engine/vector_product.c \
