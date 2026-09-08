@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/07 21:41:31 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/07 22:14:45 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,18 @@ typedef struct s_ray
 	t_vec3	direction;
 }	t_ray;
 
+typedef struct s_ambience
+{
+	double	lighting;
+	t_rgb	color;
+}	t_ambience;
+
+typedef struct s_light
+{
+	t_vec3	coord_pol;
+	double	lighting;
+}	t_light;
+
 typedef struct s_sphere
 {
 	t_vec3	center;
@@ -62,10 +74,30 @@ typedef struct s_camera
 	int		fov;
 }	t_camera;
 
+typedef struct s_plain
+{
+	t_vec3	coord_point;
+	t_vec3	vector;
+	t_rgb	color;
+}	t_plain;
+
+typedef struct s_cylinder
+{
+	t_vec3	coord_center;
+	t_vec3	vector;
+	double	diameter;
+	double	height;
+	t_rgb	color;
+}	t_cylinder;
+
 typedef struct s_scene
 {
+	t_ambience	ambience;
 	t_camera	camera;
+	t_light		light;
 	t_sphere	sphere;
+	t_plain		plain;
+	t_cylinder	cylinder;
 }	t_scene;
 
 typedef struct s_img
@@ -76,6 +108,7 @@ typedef struct s_img
 	int		line_length;
 	int		endian;
 }	t_img;
+
 typedef struct s_mlx_wrap
 {
 	void	*mlx;
