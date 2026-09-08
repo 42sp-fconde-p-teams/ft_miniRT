@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/07 22:14:45 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/08 15:07:20 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,10 +127,10 @@ int		init_window(void);
 int		close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
 int		close_btn(t_mlx_wrap *mlx_wrap);
 int		check_extention(char *file_name);
-int		read_file(char *file);
+int		read_file(char *file, t_scene *scene);
 double	ft_atod(char *nptr);
 size_t	ft_count_split_elements(char **splited);
-int		check_line(char **split_line);
+int		check_line(char **split_line, t_scene **scene);
 int		check_ambience(char **line);
 int		check_rgb_val(char *rgb);
 int		ft_double_equals(double d_a, double d_b);
