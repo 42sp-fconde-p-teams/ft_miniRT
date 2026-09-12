@@ -6,18 +6,17 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/08 15:42:50 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/08 17:56:38 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
 
-static int	check_unique_elements(char **split_line, t_scene **scene)
+static int	check_unique_elements(char **split_line, t_scene *scene)
 {
-	if (scene)
-		free(scene);
 	if (check_ambience(split_line) == EXIT_SUCCESS)
 	{
+		set_ambience(split_line, scene);
 		printf("AMBIENCE OK\n");
 		return (EXIT_SUCCESS);
 	}
@@ -35,7 +34,7 @@ static int	check_unique_elements(char **split_line, t_scene **scene)
 		return (EXIT_FAILURE);
 }
 
-int	check_solid_elements(char **split_line, t_scene **scene)
+int	check_solid_elements(char **split_line, t_scene *scene)
 {
 	if (scene)
 		free(scene);
@@ -58,7 +57,7 @@ int	check_solid_elements(char **split_line, t_scene **scene)
 		return (EXIT_FAILURE);
 }
 
-int	check_line(char **split_line, t_scene **scene)
+int	check_line(char **split_line, t_scene *scene)
 {
 	if (scene)
 		free(scene);

@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 13:03:49 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/08 15:12:13 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/12 11:16:51 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	deal_with_ext_err(char *file)
 }
 
 static int	deal_with_lines(char *line, int fd, char **split_line,
-	t_scene **scene)
+	t_scene *scene)
 {
 	int		i;
 
@@ -38,7 +38,6 @@ static int	deal_with_lines(char *line, int fd, char **split_line,
 			line = get_next_line(fd);
 			continue ;
 		}
-		printf("LINE LENGTH: %d\n", i);
 		line[i] = ' ';
 		split_line = ft_split(line, ' ');
 		check_line(&split_line[0], scene);
@@ -63,7 +62,7 @@ int	read_file(char *file, t_scene *scene)
 	if (deal_with_ext_err(file) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	fd = open(file, O_RDONLY);
-	deal_with_lines(line, fd, split_line, &scene);
+	deal_with_lines(line, fd, split_line, scene);
 	close(fd);
 	return (EXIT_SUCCESS);
 }
