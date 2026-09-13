@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 15:42:11 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/01/03 13:32:04 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 18:33:51 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ static char	*set_line(char **buffer)
 	return (return_ptr);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int ctrl)
 {
 	static char	*buffer;
 	char		*line;
@@ -105,6 +105,11 @@ char	*get_next_line(int fd)
 	eof = 1;
 	if (buffer == NULL)
 		buffer = ft_calloc(1, 1);
+	if (ctrl == 1)
+	{
+		free(buffer);
+		return (NULL);
+	}
 	if (get_nl_char(buffer) < 0)
 		eof = fill_buffer(fd, &buffer);
 	if ((eof == 0 && ft_strlen(buffer) == 0) || eof < 0)
