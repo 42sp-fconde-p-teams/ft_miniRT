@@ -28,6 +28,12 @@ SRC_FILES	= main.c \
 				parser/checker/check_coordinates.c \
 				parser/checker/check_coordinates_in_range.c \
 				parser/checker/check_double_in_range.c \
+				parser/setter/set_ambience.c \
+				parser/setter/set_camera.c \
+				parser/setter/set_light.c \
+				parser/setter/set_sphere.c \
+				parser/setter/set_plain.c \
+				parser/setter/set_cylinder.c \
 				engine/vector.c \
 				engine/vector_utils.c \
 				engine/vector_product.c \
@@ -38,7 +44,8 @@ SRC_FILES	= main.c \
 				utils/ft_double_greater_than.c \
 				utils/ft_double_less_than.c \
 				utils/ft_is_double.c \
-				utils/ft_is_int.c
+				utils/ft_is_int.c \
+				utils/ft_free_double_ptr.c
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))

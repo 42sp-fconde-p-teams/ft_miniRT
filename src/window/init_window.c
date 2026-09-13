@@ -6,11 +6,11 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 20:01:33 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/02 11:24:29 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/12 11:55:35 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/miniRT.h"
+#include "../../includes/miniRT.h"
 
 int	ft_key_hook(int keycode, void *param)
 {
@@ -18,7 +18,7 @@ int	ft_key_hook(int keycode, void *param)
 
 	mlx_wrap = (t_mlx_wrap *)param;
 	if (keycode == KEY_ESC)
-		close_window(mlx_wrap, exit);
+		printf("SAÍDA DE JANELA %d\n", close_window(mlx_wrap, exit));
 	return (0);
 }
 

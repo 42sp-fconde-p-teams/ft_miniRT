@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/05 19:22:51 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 02:16:38 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,36 @@ typedef struct s_vec3
 	double	z;
 }	t_vec3;
 
+typedef struct s_rgb
+{
+	int	red;
+	int	green;
+	int	blue;
+}	t_rgb;
+
 typedef struct s_ray
 {
 	t_vec3	origin;
 	t_vec3	direction;
 }	t_ray;
 
+typedef struct s_ambience
+{
+	double	lighting;
+	t_rgb	color;
+}	t_ambience;
+
+typedef struct s_light
+{
+	t_vec3	coord_pol;
+	double	lighting;
+}	t_light;
+
 typedef struct s_sphere
 {
 	t_vec3	center;
-	double	radius;
-	t_vec3	color;
+	double	diameter;
+	t_rgb	color;
 }	t_sphere;
 
 typedef struct s_camera
@@ -55,10 +74,30 @@ typedef struct s_camera
 	int		fov;
 }	t_camera;
 
+typedef struct s_plain
+{
+	t_vec3	coord_point;
+	t_vec3	vector;
+	t_rgb	color;
+}	t_plain;
+
+typedef struct s_cylinder
+{
+	t_vec3	coord_center;
+	t_vec3	vector;
+	double	diameter;
+	double	height;
+	t_rgb	color;
+}	t_cylinder;
+
 typedef struct s_scene
 {
+	t_ambience	ambience;
 	t_camera	camera;
+	t_light		light;
 	t_sphere	sphere;
+	t_plain		plain;
+	t_cylinder	cylinder;
 }	t_scene;
 
 typedef struct s_img
@@ -69,6 +108,7 @@ typedef struct s_img
 	int		line_length;
 	int		endian;
 }	t_img;
+
 typedef struct s_mlx_wrap
 {
 	void	*mlx;
@@ -87,10 +127,10 @@ int		init_window(void);
 int		close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
 int		close_btn(t_mlx_wrap *mlx_wrap);
 int		check_extention(char *file_name);
-int		read_file(char *file);
+int		read_file(char *file, t_scene *scene);
 double	ft_atod(char *nptr);
 size_t	ft_count_split_elements(char **splited);
-int		check_line(char **split_line);
+int		check_line(char **split_line, t_scene *scene);
 int		check_ambience(char **line);
 int		check_rgb_val(char *rgb);
 int		ft_double_equals(double d_a, double d_b);
@@ -98,6 +138,7 @@ int		ft_double_greater_than(double d_a, double d_b);
 int		ft_double_less_than(double d_a, double d_b);
 int		ft_is_double(char *str);
 int		ft_is_int(char *str);
+int		ft_free_double_ptr(char **s, size_t j);
 int		check_double_in_range(double min, double max, double num);
 int		check_camera(char **line);
 int		check_light(char **line);
@@ -106,5 +147,11 @@ int		check_coordinates(char *coord);
 int		check_plain(char **line);
 int		check_coordinates_in_range(double min, double max, char *coord);
 int		check_cylinder(char **line);
+int		set_ambience(char **split_line, t_scene *scene);
+int		set_camera(char **split_line, t_scene *scene);
+int		set_light(char **split_line, t_scene *scene);
+int		set_sphere(char **split_line, t_scene *scene);
+int		set_plain(char **split_line, t_scene *scene);
+int		set_cylinder(char **split_line, t_scene *scene);
 
 #endif
