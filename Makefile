@@ -84,14 +84,14 @@ tester: re
 	@echo "$(GREEN)✓ FT_miniRT compiled for tester mode!$(RESET)"
 
 val:
-	@valgrind valgrind \
+	@valgrind \
 			--leak-check=full \
 			--show-leak-kinds=all \
 			--track-origins=yes \
 			--trace-children=yes \
 			--track-fds=yes		\
 			--trace-children-skip='/bin/,/sbin/,/usr/bin/*' \
-			./$(NAME)
+			./$(NAME) $(FILE)
 
 norminette:
 	@norminette src/* includes/*.h
