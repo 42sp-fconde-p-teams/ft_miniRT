@@ -32,6 +32,7 @@ SRC_FILES	= main.c \
 				parser/setter/set_camera.c \
 				parser/setter/set_light.c \
 				parser/setter/set_sphere.c \
+				parser/setter/set_plain.c \
 				engine/vector.c \
 				engine/vector_utils.c \
 				engine/vector_product.c \
