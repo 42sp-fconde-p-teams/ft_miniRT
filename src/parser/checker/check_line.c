@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/13 02:17:34 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 16:28:54 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static int	check_unique_elements(char **split_line, t_scene *scene)
 {
-	if (check_ambience(split_line) == EXIT_SUCCESS)
+	if (check_ambience(split_line, scene) == EXIT_SUCCESS)
 	{
 		set_ambience(split_line, scene);
 		printf("AMBIENCE OK\n");
 		return (EXIT_SUCCESS);
 	}
-	else if (check_camera(split_line) == EXIT_SUCCESS)
+	else if (check_camera(split_line, scene) == EXIT_SUCCESS)
 	{
 		set_camera(split_line, scene);
 		printf("CAMERA OK\n");
 		return (EXIT_SUCCESS);
 	}
-	else if (check_light(split_line) == EXIT_SUCCESS)
+	else if (check_light(split_line, scene) == EXIT_SUCCESS)
 	{
 		set_light(split_line, scene);
 		printf("LIGHT OK\n");

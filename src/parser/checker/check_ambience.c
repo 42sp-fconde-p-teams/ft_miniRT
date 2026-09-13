@@ -6,15 +6,17 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 23:33:47 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/30 22:48:53 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 16:42:18 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
 
-int	check_ambience(char **line)
+int	check_ambience(char **line, t_scene *scene)
 {
 	if ((line[0][0] != 'A') || (ft_strlen(line[0]) != 1))
+		return (EXIT_FAILURE);
+	if (scene->ambience.is_set == 1)
 		return (EXIT_FAILURE);
 	if (ft_count_split_elements(line) != 3)
 		return (EXIT_FAILURE);

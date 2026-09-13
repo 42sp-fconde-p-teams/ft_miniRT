@@ -6,15 +6,17 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 19:42:50 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/06 00:36:52 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 16:42:36 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
 
-int	check_light(char **line)
+int	check_light(char **line, t_scene *scene)
 {
 	if ((line[0][0] != 'L') || (ft_strlen(line[0]) != 1))
+		return (EXIT_FAILURE);
+	if (scene->light.is_set == 1)
 		return (EXIT_FAILURE);
 	if (ft_count_split_elements(line) != 3)
 		return (EXIT_FAILURE);
