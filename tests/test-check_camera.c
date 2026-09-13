@@ -15,6 +15,20 @@ int	should_succeed_for_valid_camera_line(void)
 		return (EXIT_FAILURE);
 }
 
+int	should_fail_for_second_camera(void)
+{
+	char	*line[] = {"C", "-50.0,0.0,20.0", "0.0,0.0,1.0", "70", NULL};
+	t_scene	scene;
+
+	ft_bzero(&scene, sizeof(t_scene));
+	scene.camera.is_set = 1;
+
+	if (check_camera(line, &scene) == EXIT_FAILURE)
+		return (EXIT_SUCCESS);
+	else
+		return (EXIT_FAILURE);
+}
+
 int	should_fail_for_lowercase_c(void)
 {
 	char	*line[] = {"c", "-50.0,0.0,20.0", "0.0,0.0,1.0", "70", NULL};
@@ -102,6 +116,7 @@ int	should_fail_for_FOV_below_zero(void)
 int	main(void)
 {
 	RUN_TEST(should_succeed_for_valid_camera_line);
+	RUN_TEST(should_fail_for_second_camera);
 	RUN_TEST(should_fail_for_orient_vec_above_one);
 	RUN_TEST(should_fail_for_orient_vec_below_minus_one);
 	RUN_TEST(should_fail_for_FOV_above_180);
