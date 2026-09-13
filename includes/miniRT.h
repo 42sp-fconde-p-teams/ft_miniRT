@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/13 16:40:35 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 20:27:13 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,14 @@ typedef struct s_ambience
 	int		is_set;
 }	t_ambience;
 
+typedef struct s_camera
+{
+	t_vec3	origin;
+	t_vec3	direction;
+	int		fov;
+	int		is_set;
+}	t_camera;
+
 typedef struct s_light
 {
 	t_vec3	coord_pol;
@@ -64,33 +72,29 @@ typedef struct s_light
 
 typedef struct s_sphere
 {
-	t_vec3	center;
-	double	diameter;
-	t_rgb	color;
+	t_vec3			center;
+	double			diameter;
+	t_rgb			color;
+	struct s_sphere	*next;
 }	t_sphere;
-
-typedef struct s_camera
-{
-	t_vec3	origin;
-	t_vec3	direction;
-	int		fov;
-	int		is_set;
-}	t_camera;
 
 typedef struct s_plain
 {
-	t_vec3	coord_point;
-	t_vec3	vector;
-	t_rgb	color;
+	t_vec3			coord_point;
+	t_vec3			vector;
+	t_rgb			color;
+	struct s_plain	*next;
+
 }	t_plain;
 
 typedef struct s_cylinder
 {
-	t_vec3	coord_center;
-	t_vec3	vector;
-	double	diameter;
-	double	height;
-	t_rgb	color;
+	t_vec3				coord_center;
+	t_vec3				vector;
+	double				diameter;
+	double				height;
+	t_rgb				color;
+	struct s_cylinder	*next;
 }	t_cylinder;
 
 typedef struct s_scene
