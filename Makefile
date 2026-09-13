@@ -30,6 +30,7 @@ SRC_FILES	= main.c \
 				parser/checker/check_double_in_range.c \
 				parser/setter/set_ambience.c \
 				parser/setter/set_camera.c \
+				parser/setter/set_light.c \
 				engine/vector.c \
 				engine/vector_utils.c \
 				engine/vector_product.c \

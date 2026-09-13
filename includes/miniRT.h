@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/12 21:52:31 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/12 22:27:34 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,5 +149,6 @@ int		check_coordinates_in_range(double min, double max, char *coord);
 int		check_cylinder(char **line);
 int		set_ambience(char **split_line, t_scene *scene);
 int		set_camera(char **split_line, t_scene *scene);
+int		set_light(char **split_line, t_scene *scene);
 
 #endif
