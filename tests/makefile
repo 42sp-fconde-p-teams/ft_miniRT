@@ -30,7 +30,8 @@ C_FILES			= ../src/window/close_window.c \
 					../src/utils/ft_double_greater_than.c \
 					../src/utils/ft_double_less_than.c \
 					../src/utils/ft_is_double.c \
-					../src/utils/ft_is_int.c
+					../src/utils/ft_is_int.c \
+					../src/utils/ft_free_double_ptr.c
 
 UTILS				= utils/test_log.c utils/capture_stdout.c
 

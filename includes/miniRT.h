@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/08 17:56:03 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/12 21:35:20 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,7 @@ int		ft_double_greater_than(double d_a, double d_b);
 int		ft_double_less_than(double d_a, double d_b);
 int		ft_is_double(char *str);
 int		ft_is_int(char *str);
+int		ft_free_double_ptr(char **s, size_t j);
 int		check_double_in_range(double min, double max, double num);
 int		check_camera(char **line);
 int		check_light(char **line);
@@ -147,6 +148,5 @@ int		check_plain(char **line);
 int		check_coordinates_in_range(double min, double max, char *coord);
 int		check_cylinder(char **line);
 int		set_ambience(char **split_line, t_scene *scene);
-
 
 #endif

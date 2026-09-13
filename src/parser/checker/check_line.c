@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/08 17:56:38 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/12 11:35:38 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static int	check_unique_elements(char **split_line, t_scene *scene)
 
 int	check_solid_elements(char **split_line, t_scene *scene)
 {
-	if (scene)
-		free(scene);
+	if (!scene)
+		return (EXIT_FAILURE);
 	if (check_sphere(split_line) == EXIT_SUCCESS)
 	{
 		printf("SPHERE OK\n");
@@ -59,8 +59,8 @@ int	check_solid_elements(char **split_line, t_scene *scene)
 
 int	check_line(char **split_line, t_scene *scene)
 {
-	if (scene)
-		free(scene);
+	if (!scene)
+		return (EXIT_FAILURE);
 	if (check_unique_elements(split_line, scene) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
 	else if (check_solid_elements(split_line, scene) == EXIT_SUCCESS)

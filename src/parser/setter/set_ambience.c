@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 15:44:04 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/12 11:17:13 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/12 11:27:55 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	set_ambience(char **split_line, t_scene *scene)
 	scene->ambience.color.green = (ft_atoi(split_rgb[1]));
 	scene->ambience.color.blue = (ft_atoi(split_rgb[2]));
 	if (split_rgb)
-		free(split_rgb);
+		ft_free_double_ptr(split_rgb, ft_count_split_elements(split_rgb));
 	return (EXIT_SUCCESS);
 }
