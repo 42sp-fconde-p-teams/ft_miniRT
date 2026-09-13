@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/12 22:44:51 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 02:16:38 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,5 +152,6 @@ int		set_camera(char **split_line, t_scene *scene);
 int		set_light(char **split_line, t_scene *scene);
 int		set_sphere(char **split_line, t_scene *scene);
 int		set_plain(char **split_line, t_scene *scene);
+int		set_cylinder(char **split_line, t_scene *scene);
 
 #endif
