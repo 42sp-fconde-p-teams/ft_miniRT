@@ -22,6 +22,7 @@ C_FILES			= ../src/window/close_window.c \
 					../src/parser/setter/set_ambience.c \
 					../src/parser/setter/set_camera.c \
 					../src/parser/setter/set_light.c \
+					../src/parser/setter/set_sphere.c \
 					../src/engine/vector.c \
 					../src/engine/vector_utils.c \
 					../src/engine/vector_product.c \

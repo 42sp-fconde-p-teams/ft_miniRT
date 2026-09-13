@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/12 21:57:39 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/12 22:36:01 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static int	check_unique_elements(char **split_line, t_scene *scene)
 	}
 	else if (check_light(split_line) == EXIT_SUCCESS)
 	{
+		set_light(split_line, scene);
 		printf("LIGHT OK\n");
 		return (EXIT_SUCCESS);
 	}
@@ -41,6 +42,7 @@ int	check_solid_elements(char **split_line, t_scene *scene)
 		return (EXIT_FAILURE);
 	if (check_sphere(split_line) == EXIT_SUCCESS)
 	{
+		set_sphere(split_line, scene);
 		printf("SPHERE OK\n");
 		return (EXIT_SUCCESS);
 	}
