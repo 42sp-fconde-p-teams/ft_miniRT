@@ -6,11 +6,32 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 21:44:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/12 22:42:09 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 09:05:19 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
+
+static void	set_coord(char **coord, t_scene *scene)
+{
+	scene->plain.coord_point.x = ft_atod(coord[0]);
+	scene->plain.coord_point.y = ft_atod(coord[1]);
+	scene->plain.coord_point.z = ft_atod(coord[2]);
+}
+
+static void	set_vect(char **vect, t_scene *scene)
+{
+	scene->plain.vector.x = ft_atod(vect[0]);
+	scene->plain.vector.y = ft_atod(vect[1]);
+	scene->plain.vector.z = ft_atod(vect[2]);
+}
+
+static void	set_rgb(char **rgb, t_scene *scene)
+{
+	scene->plain.color.red = ft_atoi(rgb[0]);
+	scene->plain.color.green = ft_atoi(rgb[1]);
+	scene->plain.color.blue = ft_atoi(rgb[2]);
+}
 
 int	set_plain(char **split_line, t_scene *scene)
 {
@@ -24,15 +45,9 @@ int	set_plain(char **split_line, t_scene *scene)
 	split_coord = ft_split(split_line[1], ',');
 	split_vect = ft_split(split_line[2], ',');
 	split_rgb = ft_split(split_line[3], ',');
-	scene->plain.coord_point.x = ft_atod(split_coord[0]);
-	scene->plain.coord_point.y = ft_atod(split_coord[1]);
-	scene->plain.coord_point.z = ft_atod(split_coord[2]);
-	scene->plain.vector.x = ft_atod(split_vect[0]);
-	scene->plain.vector.y = ft_atod(split_vect[1]);
-	scene->plain.vector.z = ft_atod(split_vect[2]);
-	scene->plain.color.red = ft_atoi(split_rgb[0]);
-	scene->plain.color.green = ft_atoi(split_rgb[1]);
-	scene->plain.color.blue = ft_atoi(split_rgb[2]);
+	set_coord(split_coord, scene);
+	set_vect(split_vect, scene);
+	set_rgb(split_rgb, scene);
 	if (split_coord)
 		ft_free_double_ptr(split_coord, ft_count_split_elements(split_coord));
 	if (split_vect)
