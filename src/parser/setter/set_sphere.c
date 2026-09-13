@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 21:44:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/12 22:36:32 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/12 22:42:57 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	set_sphere(char **split_line, t_scene *scene)
 	scene->sphere.center.y = ft_atod(split_coord[1]);
 	scene->sphere.center.z = ft_atod(split_coord[2]);
 	scene->sphere.diameter = ft_atod(split_line[2]);
-	scene->sphere.color.red = ft_atod(split_rgb[0]);
-	scene->sphere.color.green = ft_atod(split_rgb[1]);
-	scene->sphere.color.blue = ft_atod(split_rgb[2]);
+	scene->sphere.color.red = ft_atoi(split_rgb[0]);
+	scene->sphere.color.green = ft_atoi(split_rgb[1]);
+	scene->sphere.color.blue = ft_atoi(split_rgb[2]);
 	if (split_coord)
 		ft_free_double_ptr(split_coord, ft_count_split_elements(split_coord));
 	if (split_rgb)
