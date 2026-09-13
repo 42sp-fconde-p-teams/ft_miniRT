@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 22:02:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/12 22:36:01 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/12 22:48:39 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	check_solid_elements(char **split_line, t_scene *scene)
 	}
 	else if (check_plain(split_line) == EXIT_SUCCESS)
 	{
+		set_plain(split_line, scene);
 		printf("PLAIN OK\n");
 		return (EXIT_SUCCESS);
 	}
