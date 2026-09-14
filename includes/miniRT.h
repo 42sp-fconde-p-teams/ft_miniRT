@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/13 20:27:13 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 20:29:42 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ typedef struct s_scene
 	t_ambience	ambience;
 	t_camera	camera;
 	t_light		light;
-	t_sphere	sphere;
+	t_sphere	*sphere;
 	t_plain		plain;
 	t_cylinder	cylinder;
 }	t_scene;
