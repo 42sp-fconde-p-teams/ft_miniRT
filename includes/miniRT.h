@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/13 20:29:42 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 21:35:51 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ typedef struct s_mlx_wrap
 {
 	void	*mlx;
 	void	*mlx_win;
+	t_scene	*scene;
 }	t_mlx_wrap;
 
 // math of vectors
@@ -130,7 +131,7 @@ t_vec3	vec3_mul(t_vec3 v, double t);
 double	vec3_dot(t_vec3 a, t_vec3 b);
 int		vec3_almost_equal(t_vec3 a, t_vec3 b);
 
-int		init_window(void);
+int		init_window(t_scene *scene);
 int		close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
 int		close_btn(t_mlx_wrap *mlx_wrap);
 int		check_extention(char *file_name);
@@ -160,5 +161,6 @@ int		set_light(char **split_line, t_scene *scene);
 int		set_sphere(char **split_line, t_scene *scene);
 int		set_plain(char **split_line, t_scene *scene);
 int		set_cylinder(char **split_line, t_scene *scene);
+int		free_scene(t_scene	*scene);
 
 #endif

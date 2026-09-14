@@ -6,14 +6,15 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 20:15:11 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/02 11:27:10 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 21:43:44 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/miniRT.h"
+#include "../../includes/miniRT.h"
 
 int	close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int))
 {
+	free_scene(mlx_wrap->scene);
 	if (mlx_wrap->mlx_win)
 	{
 		mlx_destroy_window(mlx_wrap->mlx, mlx_wrap->mlx_win);
