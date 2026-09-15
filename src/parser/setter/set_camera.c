@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 21:44:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/12 21:51:07 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 16:43:28 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	set_camera(char **split_line, t_scene *scene)
 	scene->camera.direction.y = ft_atod(split_vector[1]);
 	scene->camera.direction.z = ft_atod(split_vector[2]);
 	scene->camera.fov = ft_atoi(split_line[3]);
+	scene->camera.is_set = 1;
 	if (split_coord)
 		ft_free_double_ptr(split_coord, ft_count_split_elements(split_coord));
 	if (split_vector)

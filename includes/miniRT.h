@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/13 02:16:38 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 16:40:35 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,14 @@ typedef struct s_ambience
 {
 	double	lighting;
 	t_rgb	color;
+	int		is_set;
 }	t_ambience;
 
 typedef struct s_light
 {
 	t_vec3	coord_pol;
 	double	lighting;
+	int		is_set;
 }	t_light;
 
 typedef struct s_sphere
@@ -72,6 +74,7 @@ typedef struct s_camera
 	t_vec3	origin;
 	t_vec3	direction;
 	int		fov;
+	int		is_set;
 }	t_camera;
 
 typedef struct s_plain
@@ -131,7 +134,6 @@ int		read_file(char *file, t_scene *scene);
 double	ft_atod(char *nptr);
 size_t	ft_count_split_elements(char **splited);
 int		check_line(char **split_line, t_scene *scene);
-int		check_ambience(char **line);
 int		check_rgb_val(char *rgb);
 int		ft_double_equals(double d_a, double d_b);
 int		ft_double_greater_than(double d_a, double d_b);
@@ -140,8 +142,9 @@ int		ft_is_double(char *str);
 int		ft_is_int(char *str);
 int		ft_free_double_ptr(char **s, size_t j);
 int		check_double_in_range(double min, double max, double num);
-int		check_camera(char **line);
-int		check_light(char **line);
+int		check_ambience(char **line, t_scene *scene);
+int		check_camera(char **line, t_scene *scene);
+int		check_light(char **line, t_scene *scene);
 int		check_sphere(char **line);
 int		check_coordinates(char *coord);
 int		check_plain(char **line);

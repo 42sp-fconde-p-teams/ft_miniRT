@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 21:44:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/12 22:08:49 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 16:43:42 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	set_light(char **split_line, t_scene *scene)
 	scene->light.coord_pol.y = ft_atod(split_coord[1]);
 	scene->light.coord_pol.z = ft_atod(split_coord[2]);
 	scene->light.lighting = ft_atoi(split_line[2]);
+	scene->light.is_set = 1;
 	if (split_coord)
 		ft_free_double_ptr(split_coord, ft_count_split_elements(split_coord));
 	return (EXIT_SUCCESS);
