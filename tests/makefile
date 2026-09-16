@@ -58,6 +58,7 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-check_rgb_val.c \
 												$(TEST_DIR)/test-check_coordinates.c \
 												$(TEST_DIR)/test-set_ambience.c \
+												$(TEST_DIR)/test-set_sphere.c \
 												$(TEST_DIR)/test-basic_vectors.c \
 												$(TEST_DIR)/test-ft_atod.c \
 												$(TEST_DIR)/test-product_vectors.c \
