@@ -8,7 +8,14 @@ int should_set_valid_sphere_line(void)
 
 	ft_bzero(&scene, sizeof(scene));
 	set_sphere(line, &scene);
-	if (ft_double_equals(scene.sphere->center.x, 0.0) == EXIT_FAILURE || ft_double_equals(scene.sphere->center.y, 0.0) == EXIT_FAILURE || ft_double_equals(scene.sphere->center.z, 20.0) == EXIT_FAILURE || ft_double_equals(scene.sphere->diameter, 20.0) == EXIT_FAILURE || scene.sphere->color.red != 255 || scene.sphere->color.green != 0 || scene.sphere->color.blue != 0 || scene.sphere->next != NULL)
+	if (ft_double_equals(scene.sphere->center.x, 0.0) == EXIT_FAILURE
+		|| ft_double_equals(scene.sphere->center.y, 0.0) == EXIT_FAILURE
+		|| ft_double_equals(scene.sphere->center.z, 20.0) == EXIT_FAILURE
+		|| ft_double_equals(scene.sphere->diameter, 20.0) == EXIT_FAILURE
+		|| scene.sphere->color.red != 255
+		|| scene.sphere->color.green != 0
+		|| scene.sphere->color.blue != 0
+		|| scene.sphere->next != NULL)
 	{
 		if (scene.sphere)
 		{
