@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 21:44:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/15 22:27:59 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/15 23:56:11 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 static void	set_chain(t_scene *scene, t_sphere *sphere)
 {
-	// t_sphere	*head_s;
 	t_sphere	*temp_s;
 
-	// head_s = NULL;
 	temp_s = NULL;
 	if (!scene->sphere)
 		scene->sphere = sphere;
 	else
 	{
-		// head_s = scene->sphere;
 		temp_s = scene->sphere;
-		while (temp_s != NULL)
+		while (temp_s->next != NULL)
 		{
 			temp_s = temp_s->next;
 		}
-		temp_s = sphere;
+		temp_s->next = sphere;
 	}
 }
 

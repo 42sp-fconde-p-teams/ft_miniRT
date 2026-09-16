@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:37:58 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/13 21:34:07 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/15 23:56:35 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	init_window(&scene);
-	// free(scene.sphere);
 	return (0);
 }
