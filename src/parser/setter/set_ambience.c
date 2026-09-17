@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_light.c                                      :+:      :+:    :+:   */
+/*   set_ambience.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/30 19:42:50 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/13 16:42:36 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/09/08 15:44:04 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/09/13 16:43:07 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/miniRT.h"
 
-int	check_light(char **line, t_scene *scene)
+int	set_ambience(char **split_line, t_scene *scene)
 {
-	if ((line[0][0] != 'L') || (ft_strlen(line[0]) != 1))
-		return (EXIT_FAILURE);
-	if (scene->light.is_set == 1)
-		return (EXIT_FAILURE);
-	if (ft_count_split_elements(line) != 3)
-		return (EXIT_FAILURE);
-	if (check_coordinates(line[1]) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	if (check_double_in_range(0.0, 1.0, ft_atod(line[2])) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
+	char	**split_rgb;
+
+	split_rgb = NULL;
+	split_rgb = ft_split(split_line[2], ',');
+	scene->ambience.lighting = ft_atod(split_line[1]);
+	scene->ambience.color.red = (ft_atoi(split_rgb[0]));
+	scene->ambience.color.green = (ft_atoi(split_rgb[1]));
+	scene->ambience.color.blue = (ft_atoi(split_rgb[2]));
+	scene->ambience.is_set = 1;
+	if (split_rgb)
+		ft_free_double_ptr(split_rgb, ft_count_split_elements(split_rgb));
 	return (EXIT_SUCCESS);
 }

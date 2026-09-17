@@ -102,7 +102,7 @@ int	test_vec3_add_float(void)
 	t_vec3	b = vec3(0.5, 1.3, -0.7);
 	t_vec3	r = vec3_add(a, b);
 
-	if (vec3_almost_equal(r, vec3(2.0, -1.0, 3.0)))
+	if (vec3_almost_equal(r, vec3(2.0, -1.0, 3.0)) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
 	return (EXIT_FAILURE);
 }
@@ -113,7 +113,7 @@ int	test_vec3_sub_float(void)
 	t_vec3	b = vec3(0.5, 1.3, -0.7);
 	t_vec3	r = vec3_sub(a, b);
 
-	if (vec3_almost_equal(r, vec3(1.0, -3.6, 4.4)))
+	if (vec3_almost_equal(r, vec3(1.0, -3.6, 4.4)) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
 	return (EXIT_FAILURE);
 }

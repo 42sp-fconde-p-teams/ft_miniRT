@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:37:58 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/24 23:47:16 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/12 11:17:44 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int	main(int ac, char **av)
 {
+	t_scene	scene;
+
 	if (ac != 2)
 	{
 		printf("Error\nExpected exactly one parameter!\n");
 		return (1);
 	}
-	if (read_file(av[1]) == EXIT_FAILURE)
+	ft_bzero(&scene, sizeof(scene));
+	if (read_file(av[1], &scene) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	init_window();
 	return (0);

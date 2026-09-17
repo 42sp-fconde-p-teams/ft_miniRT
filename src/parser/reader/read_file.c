@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 13:03:49 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/03 18:51:45 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 18:40:43 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,35 +22,50 @@ static int	deal_with_ext_err(char *file)
 	return (EXIT_SUCCESS);
 }
 
-static int	deal_with_lines(char *line, int fd, char **split_line)
+static int	is_empty_line(char **line, int fd)
 {
-	int		i;
+	int	i;
 
-	i = 0;
-	line = get_next_line(fd);
+	i = ft_strlen(*line) - 1;
+	if (i == 0)
+	{
+		free(*line);
+		*line = get_next_line(fd, 0);
+		return (1);
+	}
+	return (0);
+}
+
+static void	handle_line_error(char *line, char **split_line, int fd)
+{
+	ft_free_array(split_line);
+	free(line);
+	get_next_line(fd, 1);
+}
+
+static int	deal_with_lines(char *line, int fd, char **split_line,
+	t_scene *scene)
+{
+	line = get_next_line(fd, 0);
 	while (line)
 	{
-		i = ft_strlen(line) - 1;
-		if (i == 0)
-		{
-			free(line);
-			line = get_next_line(fd);
+		if (is_empty_line(&line, fd))
 			continue ;
-		}
-		printf("LINE LENGTH: %d\n", i);
-		line[i] = ' ';
+		line[ft_strlen(line) - 1] = ' ';
 		split_line = ft_split(line, ' ');
-		check_line(&split_line[0]);
+		if (check_line(&split_line[0], scene) == EXIT_FAILURE)
+		{
+			handle_line_error(line, split_line, fd);
+			return (EXIT_FAILURE);
+		}
 		ft_free_array(split_line);
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(fd, 0);
 	}
-	if (line)
-		free(line);
 	return (EXIT_SUCCESS);
 }
 
-int	read_file(char *file)
+int	read_file(char *file, t_scene *scene)
 {
 	int		fd;
 	char	*line;
@@ -62,7 +77,7 @@ int	read_file(char *file)
 	if (deal_with_ext_err(file) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	fd = open(file, O_RDONLY);
-	deal_with_lines(line, fd, split_line);
+	deal_with_lines(line, fd, split_line, scene);
 	close(fd);
 	return (EXIT_SUCCESS);
 }
