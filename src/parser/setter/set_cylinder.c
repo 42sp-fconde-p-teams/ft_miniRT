@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 21:44:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/17 18:41:11 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/17 18:49:25 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	set_coord(char **split_line, t_cylinder *cylinder)
 
 static void	set_vect(char **split_line, t_cylinder *cylinder)
 {
-	 char	**split_vect;
+	char	**split_vect;
 
 	split_vect = NULL;
 	split_vect = ft_split(split_line[2], ',');
@@ -71,7 +71,6 @@ int	set_cylinder(char **split_line, t_scene *scene)
 	t_cylinder	*cylinder;
 
 	cylinder = ft_calloc(sizeof(t_cylinder), 1);
-	
 	set_coord(split_line, cylinder);
 	set_vect(split_line, cylinder);
 	cylinder->diameter = ft_atod(split_line[3]);
