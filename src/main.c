@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:37:58 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/12 11:17:44 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/15 23:56:35 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ int	main(int ac, char **av)
 	}
 	ft_bzero(&scene, sizeof(scene));
 	if (read_file(av[1], &scene) == EXIT_FAILURE)
+	{
+		free_scene(&scene);
+		printf("CHECKPOINT\n");
 		return (EXIT_FAILURE);
-	init_window();
+	}
+	init_window(&scene);
 	return (0);
 }

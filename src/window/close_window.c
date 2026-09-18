@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 20:15:11 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/02 11:27:10 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/14 23:26:39 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/miniRT.h"
+#include "../../includes/miniRT.h"
 
 int	close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int))
 {
+	if (mlx_wrap->scene)
+		free_scene(mlx_wrap->scene);
 	if (mlx_wrap->mlx_win)
 	{
 		mlx_destroy_window(mlx_wrap->mlx, mlx_wrap->mlx_win);

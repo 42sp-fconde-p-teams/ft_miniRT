@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/13 16:40:35 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/17 18:12:45 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,14 @@ typedef struct s_ambience
 	int		is_set;
 }	t_ambience;
 
+typedef struct s_camera
+{
+	t_vec3	origin;
+	t_vec3	direction;
+	int		fov;
+	int		is_set;
+}	t_camera;
+
 typedef struct s_light
 {
 	t_vec3	coord_pol;
@@ -64,33 +72,29 @@ typedef struct s_light
 
 typedef struct s_sphere
 {
-	t_vec3	center;
-	double	diameter;
-	t_rgb	color;
+	t_vec3			center;
+	double			diameter;
+	t_rgb			color;
+	struct s_sphere	*next;
 }	t_sphere;
-
-typedef struct s_camera
-{
-	t_vec3	origin;
-	t_vec3	direction;
-	int		fov;
-	int		is_set;
-}	t_camera;
 
 typedef struct s_plain
 {
-	t_vec3	coord_point;
-	t_vec3	vector;
-	t_rgb	color;
+	t_vec3			coord_point;
+	t_vec3			vector;
+	t_rgb			color;
+	struct s_plain	*next;
+
 }	t_plain;
 
 typedef struct s_cylinder
 {
-	t_vec3	coord_center;
-	t_vec3	vector;
-	double	diameter;
-	double	height;
-	t_rgb	color;
+	t_vec3				coord_center;
+	t_vec3				vector;
+	double				diameter;
+	double				height;
+	t_rgb				color;
+	struct s_cylinder	*next;
 }	t_cylinder;
 
 typedef struct s_scene
@@ -98,9 +102,9 @@ typedef struct s_scene
 	t_ambience	ambience;
 	t_camera	camera;
 	t_light		light;
-	t_sphere	sphere;
-	t_plain		plain;
-	t_cylinder	cylinder;
+	t_sphere	*sphere;
+	t_plain		*plain;
+	t_cylinder	*cylinder;
 }	t_scene;
 
 typedef struct s_img
@@ -116,6 +120,7 @@ typedef struct s_mlx_wrap
 {
 	void	*mlx;
 	void	*mlx_win;
+	t_scene	*scene;
 }	t_mlx_wrap;
 
 // math of vectors
@@ -126,7 +131,7 @@ t_vec3	vec3_mul(t_vec3 v, double t);
 double	vec3_dot(t_vec3 a, t_vec3 b);
 int		vec3_almost_equal(t_vec3 a, t_vec3 b);
 
-int		init_window(void);
+int		init_window(t_scene *scene);
 int		close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
 int		close_btn(t_mlx_wrap *mlx_wrap);
 int		check_extention(char *file_name);
@@ -156,5 +161,6 @@ int		set_light(char **split_line, t_scene *scene);
 int		set_sphere(char **split_line, t_scene *scene);
 int		set_plain(char **split_line, t_scene *scene);
 int		set_cylinder(char **split_line, t_scene *scene);
+int		free_scene(t_scene	*scene);
 
 #endif
