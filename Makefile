@@ -37,6 +37,8 @@ SRC_FILES	= main.c \
 				engine/vector.c \
 				engine/vector_utils.c \
 				engine/vector_product.c \
+				engine/ray.c \
+				engine/sphere.c \
 				parser/reader/read_file.c \
 				utils/ft_atod.c \
 				utils/ft_count_split_elements.c \
