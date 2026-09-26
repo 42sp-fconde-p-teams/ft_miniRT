@@ -158,6 +158,50 @@ int	test_vec3_mul_fraction(void)
 	return (EXIT_FAILURE);
 }
 
+// Length de (3, 4, 0) = 5 (triângulo)
+int	should_compute_length_of_3_4_0(void)
+{
+	t_vec3	v = vec3(3, 4, 0);
+	double	len = vec3_length(v);
+
+	if (fabs(len - 5.0) < 1e-9)
+		return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
+}
+
+// Length de (1, 0, 0) = 1
+int	should_compute_length_of_unit_x(void)
+{
+	t_vec3	v = vec3(1, 0, 0);
+	double	len = vec3_length(v);
+
+	if (fabs(len - 1.0) < 1e-9)
+		return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
+}
+
+// Length de (0, 0, 0) = 0
+int	should_compute_length_of_zero_vector(void)
+{
+	t_vec3	v = vec3(0, 0, 0);
+	double	len = vec3_length(v);
+
+	if (fabs(len) < 1e-9)
+		return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
+}
+
+// Length de (1, 2, 2) = 3
+int	should_compute_length_of_1_2_2(void)
+{
+	t_vec3	v = vec3(1, 2, 2);
+	double	len = vec3_length(v);
+
+	if (fabs(len - 3.0) < 1e-9)
+		return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
+}
+
 int	main(void)
 {
 	RUN_TEST(test_vec3_add);
@@ -175,5 +219,9 @@ int	main(void)
 	RUN_TEST(test_vec3_mul_one);
 	RUN_TEST(test_vec3_mul_minus_one);
 	RUN_TEST(test_vec3_mul_fraction);
+	RUN_TEST(should_compute_length_of_3_4_0);
+	RUN_TEST(should_compute_length_of_unit_x);
+	RUN_TEST(should_compute_length_of_zero_vector);
+	RUN_TEST(should_compute_length_of_1_2_2);
 	return (0);
 }
