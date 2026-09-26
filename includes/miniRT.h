@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniRT.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/13 16:40:35 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/26 16:10:54 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,14 @@ typedef struct s_ray
 	t_vec3	origin;
 	t_vec3	direction;
 }	t_ray;
+
+typedef struct s_quadratic
+{
+	double	a;
+	double	b;
+	double	c;
+	double	discriminant;
+}	t_quadratic;
 
 typedef struct s_ambience
 {
@@ -124,7 +132,10 @@ t_vec3	vec3_add(t_vec3 a, t_vec3 b);
 t_vec3	vec3_sub(t_vec3 a, t_vec3 b);
 t_vec3	vec3_mul(t_vec3 v, double t);
 double	vec3_dot(t_vec3 a, t_vec3 b);
+t_vec3	vec3_cross(t_vec3 a, t_vec3 b);
 int		vec3_almost_equal(t_vec3 a, t_vec3 b);
+
+t_ray	ray(t_vec3 origin, t_vec3 direction);
 
 int		init_window(void);
 int		close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
