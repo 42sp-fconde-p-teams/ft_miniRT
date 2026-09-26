@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/26 16:22:01 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/09/26 16:26:11 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ t_vec3	vec3_cross(t_vec3 a, t_vec3 b);
 int		vec3_almost_equal(t_vec3 a, t_vec3 b);
 
 t_ray	ray(t_vec3 origin, t_vec3 direction);
+int		intersect_sphere(t_ray ray, t_sphere sphere, double *distance);
 
 int		init_window(t_scene *scene);
 int		close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
