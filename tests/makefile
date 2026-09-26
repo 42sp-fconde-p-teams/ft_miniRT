@@ -36,7 +36,8 @@ C_FILES			= ../src/window/close_window.c \
 					../src/utils/ft_double_less_than.c \
 					../src/utils/ft_is_double.c \
 					../src/utils/ft_is_int.c \
-					../src/utils/ft_free_double_ptr.c
+					../src/utils/ft_free_double_ptr.c \
+					../src/utils/free_scene.c
 
 UTILS				= utils/test_log.c utils/capture_stdout.c
 
@@ -57,6 +58,7 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-check_rgb_val.c \
 												$(TEST_DIR)/test-check_coordinates.c \
 												$(TEST_DIR)/test-set_ambience.c \
+												$(TEST_DIR)/test-set_sphere.c \
 												$(TEST_DIR)/test-basic_vectors.c \
 												$(TEST_DIR)/test-ft_atod.c \
 												$(TEST_DIR)/test-product_vectors.c \

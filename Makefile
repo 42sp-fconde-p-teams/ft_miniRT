@@ -45,7 +45,8 @@ SRC_FILES	= main.c \
 				utils/ft_double_less_than.c \
 				utils/ft_is_double.c \
 				utils/ft_is_int.c \
-				utils/ft_free_double_ptr.c
+				utils/ft_free_double_ptr.c \
+				utils/free_scene.c
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))

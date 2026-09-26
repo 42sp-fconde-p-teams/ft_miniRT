@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 20:01:33 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/12 11:55:35 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/13 21:45:14 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ int	ft_key_hook(int keycode, void *param)
 	return (0);
 }
 
-int	init_window(void)
+int	init_window(t_scene *scene)
 {
 	t_mlx_wrap	mlx_wrap;
 
+	mlx_wrap.scene = scene;
 	mlx_wrap.mlx = mlx_init();
 	mlx_wrap.mlx_win = mlx_new_window(mlx_wrap.mlx, 800, 600, "FT_miniRT");
 	mlx_key_hook(mlx_wrap.mlx_win, ft_key_hook, &mlx_wrap);
