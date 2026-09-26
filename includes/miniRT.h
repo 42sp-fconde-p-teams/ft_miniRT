@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/26 16:26:11 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/09/26 17:11:36 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,13 @@ typedef struct s_camera
 	int		is_set;
 }	t_camera;
 
+typedef struct s_camera_basis
+{
+	t_vec3	right;
+	t_vec3	up;
+	t_vec3	forward;
+}	t_camera_basis;
+
 typedef struct s_light
 {
 	t_vec3	coord_pol;
@@ -128,6 +135,7 @@ typedef struct s_mlx_wrap
 {
 	void	*mlx;
 	void	*mlx_win;
+	t_img	img;
 	t_scene	*scene;
 }	t_mlx_wrap;
 
@@ -136,12 +144,15 @@ t_vec3	vec3(double x, double y, double z);
 t_vec3	vec3_add(t_vec3 a, t_vec3 b);
 t_vec3	vec3_sub(t_vec3 a, t_vec3 b);
 t_vec3	vec3_mul(t_vec3 v, double t);
+double	vec3_length(t_vec3 v);
 double	vec3_dot(t_vec3 a, t_vec3 b);
 t_vec3	vec3_cross(t_vec3 a, t_vec3 b);
 int		vec3_almost_equal(t_vec3 a, t_vec3 b);
+t_vec3	vec3_normalize(t_vec3 v);
 
 t_ray	ray(t_vec3 origin, t_vec3 direction);
 int		intersect_sphere(t_ray ray, t_sphere sphere, double *distance);
+t_vec3	generate_ray_direction(t_camera cam, int x, int y);
 
 int		init_window(t_scene *scene);
 int		close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
