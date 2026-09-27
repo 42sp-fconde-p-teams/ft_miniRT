@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 21:24:28 by thfernan          #+#    #+#             */
-/*   Updated: 2026/08/18 05:51:01 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/09/26 16:57:31 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,15 @@ t_vec3	vec3_mul(t_vec3 v, double scale)
 	result.y = v.y * scale;
 	result.z = v.z * scale;
 	return (result);
+}
+
+// Returns the length (magnitude) of a vector: √(x² + y² + z²).
+double	vec3_length(t_vec3 v)
+{
+	double	squared_length;
+	double	length;
+
+	squared_length = v.x * v.x + v.y * v.y + v.z * v.z;
+	length = sqrt(squared_length);
+	return (length);
 }

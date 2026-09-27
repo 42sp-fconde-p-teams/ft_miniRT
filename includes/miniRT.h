@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniRT.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/17 18:12:45 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/27 10:28:12 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,14 @@ typedef struct s_ray
 	t_vec3	direction;
 }	t_ray;
 
+typedef struct s_quadratic
+{
+	double	a;
+	double	b;
+	double	c;
+	double	discriminant;
+}	t_quadratic;
+
 typedef struct s_ambience
 {
 	double	lighting;
@@ -62,6 +70,13 @@ typedef struct s_camera
 	int		fov;
 	int		is_set;
 }	t_camera;
+
+typedef struct s_camera_basis
+{
+	t_vec3	right;
+	t_vec3	up;
+	t_vec3	forward;
+}	t_camera_basis;
 
 typedef struct s_light
 {
@@ -120,6 +135,7 @@ typedef struct s_mlx_wrap
 {
 	void	*mlx;
 	void	*mlx_win;
+	t_img	img;
 	t_scene	*scene;
 }	t_mlx_wrap;
 
@@ -128,12 +144,24 @@ t_vec3	vec3(double x, double y, double z);
 t_vec3	vec3_add(t_vec3 a, t_vec3 b);
 t_vec3	vec3_sub(t_vec3 a, t_vec3 b);
 t_vec3	vec3_mul(t_vec3 v, double t);
+double	vec3_length(t_vec3 v);
 double	vec3_dot(t_vec3 a, t_vec3 b);
+t_vec3	vec3_cross(t_vec3 a, t_vec3 b);
 int		vec3_almost_equal(t_vec3 a, t_vec3 b);
+t_vec3	vec3_normalize(t_vec3 v);
 
-int		init_window(t_scene *scene);
-int		close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
-int		close_btn(t_mlx_wrap *mlx_wrap);
+t_ray	ray(t_vec3 origin, t_vec3 direction);
+int		intersect_sphere(t_ray ray, t_sphere sphere, double *distance);
+t_vec3	generate_ray_direction(t_camera cam, int x, int y);
+t_rgb	trace_pixel(t_mlx_wrap *wrap, int x, int y);
+void	render(t_mlx_wrap *wrap);
+
+void	ft_put_pixel(t_img *img, int x, int y, t_rgb color);
+
+int		init_window(t_scene *scene, t_mlx_wrap *mlx_wrap);
+int		close_window(t_mlx_wrap *mlx_wrap);
+int		close_btn(void *param);
+void	cleanup(t_mlx_wrap *wrap);
 int		check_extention(char *file_name);
 int		read_file(char *file, t_scene *scene);
 double	ft_atod(char *nptr);
