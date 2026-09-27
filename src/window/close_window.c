@@ -3,37 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 20:15:11 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/14 23:26:39 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/27 10:31:35 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/miniRT.h"
 
-int	close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int))
+void	cleanup(t_mlx_wrap *wrap)
 {
-	if (mlx_wrap->scene)
-		free_scene(mlx_wrap->scene);
-	if (mlx_wrap->mlx_win)
+	if (wrap->img.img_ptr)
+		mlx_destroy_image(wrap->mlx, wrap->img.img_ptr);
+	if (wrap->mlx_win)
+		mlx_destroy_window(wrap->mlx, wrap->mlx_win);
+	if (wrap->scene)
+		free_scene(wrap->scene);
+	if (wrap->mlx)
 	{
-		mlx_destroy_window(mlx_wrap->mlx, mlx_wrap->mlx_win);
-		mlx_wrap->mlx_win = NULL;
+		mlx_destroy_display(wrap->mlx);
+		free(wrap->mlx);
 	}
-	if (mlx_wrap->mlx)
-	{
-		mlx_destroy_display(mlx_wrap->mlx);
-		free(mlx_wrap->mlx);
-		mlx_wrap->mlx = NULL;
-	}
-	if (term_func)
-		term_func(0);
-	return (0);
 }
 
-int	close_btn(t_mlx_wrap *mlx_wrap)
+int	close_window(t_mlx_wrap *wrap)
 {
-	close_window(mlx_wrap, exit);
-	return (0);
+	mlx_loop_end(wrap->mlx);
+	return (EXIT_SUCCESS);
+}
+
+int	close_btn(void *param)
+{
+	close_window((t_mlx_wrap *)param);
+	return (EXIT_SUCCESS);
 }
