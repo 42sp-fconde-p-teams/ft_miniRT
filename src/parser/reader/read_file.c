@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 13:03:49 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/13 18:40:43 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/26 18:38:08 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,16 @@ int	read_file(char *file, t_scene *scene)
 	if (deal_with_ext_err(file) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	fd = open(file, O_RDONLY);
-	deal_with_lines(line, fd, split_line, scene);
+	if (fd < 0)
+	{
+		printf("Error\nCould not open file!\n");
+		return (EXIT_FAILURE);
+	}
+	if (deal_with_lines(line, fd, split_line, scene) == EXIT_FAILURE)
+	{
+		close(fd);
+		return (EXIT_FAILURE);
+	}
 	close(fd);
 	return (EXIT_SUCCESS);
 }
