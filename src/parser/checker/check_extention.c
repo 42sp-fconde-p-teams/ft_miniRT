@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_extention.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 18:46:02 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/08/08 11:46:05 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/09/26 18:18:09 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/miniRT.h"
+#include "../../../includes/miniRT.h"
 
 static int	check_file_lenght(char *file_name)
 {
