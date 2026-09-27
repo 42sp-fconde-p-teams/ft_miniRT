@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/26 17:11:36 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/09/27 10:28:12 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,10 +153,15 @@ t_vec3	vec3_normalize(t_vec3 v);
 t_ray	ray(t_vec3 origin, t_vec3 direction);
 int		intersect_sphere(t_ray ray, t_sphere sphere, double *distance);
 t_vec3	generate_ray_direction(t_camera cam, int x, int y);
+t_rgb	trace_pixel(t_mlx_wrap *wrap, int x, int y);
+void	render(t_mlx_wrap *wrap);
 
-int		init_window(t_scene *scene);
-int		close_window(t_mlx_wrap *mlx_wrap, void (*term_func)(int));
-int		close_btn(t_mlx_wrap *mlx_wrap);
+void	ft_put_pixel(t_img *img, int x, int y, t_rgb color);
+
+int		init_window(t_scene *scene, t_mlx_wrap *mlx_wrap);
+int		close_window(t_mlx_wrap *mlx_wrap);
+int		close_btn(void *param);
+void	cleanup(t_mlx_wrap *wrap);
 int		check_extention(char *file_name);
 int		read_file(char *file, t_scene *scene);
 double	ft_atod(char *nptr);
