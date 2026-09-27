@@ -30,6 +30,8 @@ C_FILES			= ../src/window/close_window.c \
 					../src/engine/vector_product.c \
 					../src/engine/ray.c \
 					../src/engine/sphere.c \
+					../src/engine/pixel.c \
+					../src/engine/render.c \
 					../src/parser/reader/read_file.c \
 					../src/utils/ft_atod.c \
 					../src/utils/ft_count_split_elements.c \
@@ -67,7 +69,9 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-ft_is_double.c \
 												$(TEST_DIR)/test-ft_is_int.c \
 												$(TEST_DIR)/test-ray.c \
-												$(TEST_DIR)/test-sphere.c
+												$(TEST_DIR)/test-sphere.c \
+												$(TEST_DIR)/test-pixel.c \
+												$(TEST_DIR)/test-render.c
 
 TEST_BINS		= $(TEST_SRCS:.c=.out)
 REPORT_LOG	= test_report.log
