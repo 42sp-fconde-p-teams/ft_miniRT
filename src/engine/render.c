@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 22:15:34 by thfernan          #+#    #+#             */
-/*   Updated: 2026/09/27 10:12:32 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/10/10 18:12:56 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,24 @@
 t_rgb	trace_pixel(t_mlx_wrap *wrap, int x, int y)
 {
 	t_ray	ray_cam;
-	t_vec3	direction;
+	t_vec3	hit_point;
+	t_vec3	normal;
 	double	t;
-	t_rgb	hit_color;
+	t_rgb	color;
 
-	direction = generate_ray_direction(wrap->scene->camera, x, y);
-	ray_cam = ray(wrap->scene->camera.origin, direction);
+	ray_cam.origin = wrap->scene->camera.origin;
+	ray_cam.direction = generate_ray_direction(wrap->scene->camera, x, y);
 	if (wrap->scene->sphere
 		&& intersect_sphere(ray_cam, *wrap->scene->sphere, &t) == EXIT_SUCCESS)
-		hit_color = wrap->scene->sphere->color;
+	{
+		hit_point = vec3_add(ray_cam.origin, vec3_mul(ray_cam.direction, t));
+		normal = vec3_normalize(
+				vec3_sub(hit_point, wrap->scene->sphere->center));
+		color = compute_lighting(wrap, hit_point, normal);
+	}
 	else
-		hit_color = (t_rgb){0, 0, 0};
-	return (hit_color);
+		color = (t_rgb){0, 0, 0};
+	return (color);
 }
 
 void	render(t_mlx_wrap *wrap)

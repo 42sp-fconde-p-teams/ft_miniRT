@@ -32,6 +32,7 @@ C_FILES			= ../src/window/close_window.c \
 					../src/engine/sphere.c \
 					../src/engine/pixel.c \
 					../src/engine/render.c \
+					../src/engine/light.c \
 					../src/parser/reader/read_file.c \
 					../src/utils/ft_atod.c \
 					../src/utils/ft_count_split_elements.c \
@@ -71,7 +72,8 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-ray.c \
 												$(TEST_DIR)/test-sphere.c \
 												$(TEST_DIR)/test-pixel.c \
-												$(TEST_DIR)/test-render.c
+												$(TEST_DIR)/test-render.c \
+												$(TEST_DIR)/test-light.c
 
 TEST_BINS		= $(TEST_SRCS:.c=.out)
 REPORT_LOG	= test_report.log
