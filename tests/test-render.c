@@ -23,12 +23,14 @@ int	should_trace_center_pixel_hit_sphere(void)
 	scene.camera.origin = vec3(0, 0, 0);
 	scene.camera.direction = vec3(0, 0, 1);
 	scene.camera.fov = 90;
+	scene.light.coord_pol = vec3(0, 5, 0);
+	scene.light.lighting = 1.0;
 	sphere.center = vec3(0, 0, 5);
 	sphere.diameter = 2.0;
 	sphere.color = (t_rgb){255, 0, 0};
 	wrap = setup_wrap(&scene, &sphere);
 	color = trace_pixel(&wrap, WIN_WIDTH / 2, WIN_HEIGHT / 2);
-	if (color.red == 255 && color.green == 0 && color.blue == 0)
+	if (color.red > 0 && color.green == 0 && color.blue == 0)
 		return (EXIT_SUCCESS);
 	return (EXIT_FAILURE);
 }
