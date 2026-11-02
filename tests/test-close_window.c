@@ -3,16 +3,21 @@
 
 int	it_closes_the_window(void)
 {
-	t_mlx_wrap	mlx_wrap;
+	t_mlx_wrap	wrap;
 
-	ft_bzero(&mlx_wrap, sizeof(mlx_wrap));
-	mlx_wrap.mlx = mlx_init();
-	mlx_wrap.mlx_win = mlx_new_window(mlx_wrap.mlx, 800, 600, "FT_miniRT");
-	close_window(&mlx_wrap);
-	if (mlx_wrap.mlx_win == NULL && mlx_wrap.mlx == NULL)
+	ft_bzero(&wrap, sizeof(wrap));
+	wrap.mlx = mlx_init();
+	wrap.mlx_win = mlx_new_window(wrap.mlx, 800, 600, "test");
+	if (close_window(&wrap) == EXIT_SUCCESS)
+	{
+		// close_window only signals the loop to end.
+		// Manual cleanup so the test doesn't leak.
+		mlx_destroy_window(wrap.mlx, wrap.mlx_win);
+		mlx_destroy_display(wrap.mlx);
+		free(wrap.mlx);
 		return (EXIT_SUCCESS);
-	else
-		return (EXIT_FAILURE);
+	}
+	return (EXIT_FAILURE);
 }
 
 int	main(void)
