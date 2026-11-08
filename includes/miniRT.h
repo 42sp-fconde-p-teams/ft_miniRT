@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/10/12 16:46:30 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/08 18:21:18 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,8 @@ int		intersect_sphere(t_ray ray, t_sphere sphere, double *distance);
 t_vec3	generate_ray_direction(t_camera cam, int x, int y);
 t_rgb	trace_pixel(t_mlx_wrap *wrap, int x, int y);
 t_rgb	compute_lighting(t_mlx_wrap *wrap, t_vec3 hit_point, t_vec3 normal);
+int		limit_rgb(int value);
+t_rgb	add_lights(t_rgb a, t_rgb d, t_rgb s);
 void	render(t_mlx_wrap *wrap);
 
 void	ft_put_pixel(t_img *img, int x, int y, t_rgb color);
