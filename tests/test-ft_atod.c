@@ -4,7 +4,7 @@
 int	should_convert_positive_nbr_string_to_double(void)
 {
 	double	d_nbr = 0.0;
-	char	str[4] = "3.14";
+	char	str[] = "3.14";
 
 	d_nbr = ft_atod(str);
 	if (d_nbr == 3.14000)
@@ -15,7 +15,7 @@ int	should_convert_positive_nbr_string_to_double(void)
 int	should_convert_negative_nbr_string_to_double(void)
 {
 	double	d_nbr = 0.0;
-	char	str[5] = "-3.14";
+	char	str[] = "-3.14";
 
 	d_nbr = ft_atod(str);
 	if (d_nbr == -3.14)
@@ -26,7 +26,7 @@ int	should_convert_negative_nbr_string_to_double(void)
 int	should_convert_neg_nbr_starting_with_zero_string_to_double(void)
 {
 	double	d_nbr = 0.0;
-	char	str[5] = "-0.14";
+	char	str[] = "-0.14";
 
 	d_nbr = ft_atod(str);
 	if (d_nbr == -0.14)
@@ -37,7 +37,7 @@ int	should_convert_neg_nbr_starting_with_zero_string_to_double(void)
 int	should_convert_pos_nbr_starting_with_zero_string_to_double(void)
 {
 	double	d_nbr = 0.0;
-	char	str[5] = "0.14";
+	char	str[] = "0.14";
 
 	d_nbr = ft_atod(str);
 	if (d_nbr == 0.14)
@@ -48,7 +48,7 @@ int	should_convert_pos_nbr_starting_with_zero_string_to_double(void)
 int	should_convert_pos_nbr_zero_string_to_double(void)
 {
 	double	d_nbr = 0.0;
-	char	str[4] = "0.0";
+	char	str[] = "0.0";
 
 	d_nbr = ft_atod(str);
 	if (d_nbr == 0.0)
@@ -59,7 +59,7 @@ int	should_convert_pos_nbr_zero_string_to_double(void)
 int	should_convert_neg_nbr_zero_string_to_double(void)
 {
 	double	d_nbr = 0.0;
-	char	str[5] = "-0.0";
+	char	str[] = "-0.0";
 
 	d_nbr = ft_atod(str);
 	if (d_nbr == 0.0)
@@ -70,7 +70,7 @@ int	should_convert_neg_nbr_zero_string_to_double(void)
 int	should_convert_positive_int_string_to_double(void)
 {
 	double	d_nbr = 0.0;
-	char	str[3] = "42";
+	char	str[] = "42";
 
 	d_nbr = ft_atod(str);
 	if (d_nbr == 42.0)
@@ -81,7 +81,7 @@ int	should_convert_positive_int_string_to_double(void)
 int	should_convert_negative_int_string_to_double(void)
 {
 	double	d_nbr = 0.0;
-	char	str[4] = "-42";
+	char	str[] = "-42";
 
 	d_nbr = ft_atod(str);
 	if (d_nbr == -42.0)
@@ -92,7 +92,7 @@ int	should_convert_negative_int_string_to_double(void)
 int	should_convert_zero_int_string_to_double(void)
 {
 	double	d_nbr = 0.0;
-	char	str[2] = "0";
+	char	str[] = "0";
 
 	d_nbr = ft_atod(str);
 	if (d_nbr == 0.0)
