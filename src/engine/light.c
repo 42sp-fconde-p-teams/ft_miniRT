@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 14:01:24 by thfernan          #+#    #+#             */
-/*   Updated: 2026/11/08 18:40:37 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/08 19:31:32 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static t_rgb	compute_ambient(t_mlx_wrap *wrap)
 
 // Computes the diffuse lighting for a surface point.
 // brightness = max(0, dot(N, L)).
-static t_rgb	compute_diffuse(t_mlx_wrap *wrap, t_vec3 hit_point, t_vec3 normal)
+static t_rgb	compute_diffuse(t_mlx_wrap *wrap, t_vec3 hit_point,
+	t_vec3 normal)
 {
 	t_vec3	to_light;
 	t_vec3	light_dir;
