@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 14:01:24 by thfernan          #+#    #+#             */
-/*   Updated: 2026/11/14 13:35:36 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/20 19:58:53 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static t_rgb	compute_diffuse(t_mlx_wrap *wrap, t_sphere *sphere,
 }
 
 // Computes the specular highlight (Phong reflection model).
-static t_rgb	compute_specular(t_mlx_wrap *wrap, t_sphere *sphere,
+static t_rgb	compute_specular(t_mlx_wrap *wrap,
 		t_vec3 hit_point, t_vec3 normal, t_vec3 light_dir)
 {
 	t_vec3	view_dir;
@@ -65,7 +65,6 @@ static t_rgb	compute_specular(t_mlx_wrap *wrap, t_sphere *sphere,
 	if (spec < 0.0)
 		spec = 0.0;
 	intensity = pow(spec, 50.0) * wrap->scene->light.lighting;
-	(void)sphere;
 	result.red = limit_rgb((int)(255 * intensity));
 	result.green = limit_rgb((int)(255 * intensity));
 	result.blue = limit_rgb((int)(255 * intensity));
@@ -86,7 +85,7 @@ t_rgb	compute_lighting(t_mlx_wrap *wrap, t_sphere *sphere,
 			vec3_sub(wrap->scene->light.coord_pol, hit_point));
 	ambient = compute_ambient(wrap, sphere);
 	diffuse = compute_diffuse(wrap, sphere, hit_point, normal);
-	specular = compute_specular(wrap, sphere, hit_point, normal, light_dir);
+	specular = compute_specular(wrap, hit_point, normal, light_dir);
 	result = add_lights(ambient, diffuse, specular);
 	return (result);
 }
