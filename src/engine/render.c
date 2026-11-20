@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 22:15:34 by thfernan          #+#    #+#             */
-/*   Updated: 2026/11/14 13:37:22 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/20 19:55:11 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static t_sphere	*find_closest_sphere(t_ray ray, t_sphere *list, double *t_hit)
 }
 
 // Computes the final color for a ray that hit a sphere at distance t.
-static t_rgb	shade_hit(t_mlx_wrap *wrap, t_ray ray, t_sphere *sphere, double t)
+static t_rgb	shade_hit(t_mlx_wrap *wrap, t_ray ray, t_sphere *sphere,
+		double t)
 {
 	t_vec3	hit_point;
 	t_vec3	normal;
