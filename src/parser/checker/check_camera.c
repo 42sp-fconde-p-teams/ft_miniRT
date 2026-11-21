@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_camera.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/28 11:56:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/13 16:42:12 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/11/21 14:49:30 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	basic_check(char **line, t_scene *scene)
 		return (EXIT_FAILURE);
 	if (check_coordinates(line[1]) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	if (check_coordinates_in_range(0.0, 1.0, line[2]) == EXIT_FAILURE)
+	if (check_coordinates_in_range(-1.0, 1.0, line[2]) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

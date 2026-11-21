@@ -40,6 +40,7 @@ SRC_FILES	= main.c \
 				engine/ray.c \
 				engine/sphere.c \
 				engine/pixel.c \
+				engine/plane.c \
 				engine/render.c \
 				engine/light.c \
 				engine/light_utils.c \

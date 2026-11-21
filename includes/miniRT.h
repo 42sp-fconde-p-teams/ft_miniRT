@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/11/20 19:54:11 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/21 11:20:13 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,22 @@ typedef struct s_quadratic
 	double	c;
 	double	discriminant;
 }	t_quadratic;
+
+typedef enum e_type
+{
+	TYPE_SPHERE,
+	TYPE_PLANE,
+	TYPE_CYLINDER
+}	t_type;
+
+typedef struct s_hit
+{
+	t_type	type;
+	void	*object;
+	double	t;
+	t_vec3	normal;
+	t_vec3	point;
+}	t_hit;
 
 typedef struct s_ambience
 {
@@ -160,9 +176,11 @@ t_vec3	vec3_normalize(t_vec3 v);
 
 t_ray	ray(t_vec3 origin, t_vec3 direction);
 int		intersect_sphere(t_ray ray, t_sphere sphere, double *distance);
+int		intersect_plane(t_ray ray, t_plain plane, double *distance);
+t_hit	trace_scene(t_ray ray, t_scene *scene);
 t_vec3	generate_ray_direction(t_camera cam, int x, int y);
 t_rgb	trace_pixel(t_mlx_wrap *wrap, int x, int y);
-t_rgb	compute_lighting(t_mlx_wrap *wrap, t_sphere *sphere,
+t_rgb	compute_lighting(t_mlx_wrap *wrap, t_rgb color,
 			t_vec3 hit_point, t_vec3 normal);
 int		limit_rgb(int value);
 t_rgb	add_lights(t_rgb a, t_rgb d, t_rgb s);
