@@ -6,28 +6,28 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 14:01:24 by thfernan          #+#    #+#             */
-/*   Updated: 2026/11/20 19:58:53 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/21 10:10:33 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/miniRT.h"
 
 // Computes the ambient contribution (no direction, affects all points).
-static t_rgb	compute_ambient(t_mlx_wrap *wrap, t_sphere *sphere)
+static t_rgb	compute_ambient(t_mlx_wrap *wrap, t_rgb color)
 {
 	t_rgb	result;
 	double	ratio;
 
 	ratio = wrap->scene->ambience.lighting;
-	result.red = (int)(sphere->color.red * ratio);
-	result.green = (int)(sphere->color.green * ratio);
-	result.blue = (int)(sphere->color.blue * ratio);
+	result.red = (int)(color.red * ratio);
+	result.green = (int)(color.green * ratio);
+	result.blue = (int)(color.blue * ratio);
 	return (result);
 }
 
 // Computes the diffuse lighting for a surface point.
 // brightness = max(0, dot(N, L)).
-static t_rgb	compute_diffuse(t_mlx_wrap *wrap, t_sphere *sphere,
+static t_rgb	compute_diffuse(t_mlx_wrap *wrap, t_rgb color,
 	t_vec3 hit_point, t_vec3 normal)
 {
 	t_vec3	to_light;
@@ -41,9 +41,9 @@ static t_rgb	compute_diffuse(t_mlx_wrap *wrap, t_sphere *sphere,
 	if (diffuse < 0.0)
 		diffuse = 0.0;
 	diffuse *= wrap->scene->light.lighting;
-	result.red = (int)(sphere->color.red * diffuse);
-	result.green = (int)(sphere->color.green * diffuse);
-	result.blue = (int)(sphere->color.blue * diffuse);
+	result.red = (int)(color.red * diffuse);
+	result.green = (int)(color.green * diffuse);
+	result.blue = (int)(color.blue * diffuse);
 	return (result);
 }
 
@@ -72,7 +72,7 @@ static t_rgb	compute_specular(t_mlx_wrap *wrap,
 }
 
 // Combines ambient, diffuse and specular lighting with clamping.
-t_rgb	compute_lighting(t_mlx_wrap *wrap, t_sphere *sphere,
+t_rgb	compute_lighting(t_mlx_wrap *wrap, t_rgb color,
 		t_vec3 hit_point, t_vec3 normal)
 {
 	t_vec3	light_dir;
@@ -83,8 +83,8 @@ t_rgb	compute_lighting(t_mlx_wrap *wrap, t_sphere *sphere,
 
 	light_dir = vec3_normalize(
 			vec3_sub(wrap->scene->light.coord_pol, hit_point));
-	ambient = compute_ambient(wrap, sphere);
-	diffuse = compute_diffuse(wrap, sphere, hit_point, normal);
+	ambient = compute_ambient(wrap, color);
+	diffuse = compute_diffuse(wrap, color, hit_point, normal);
 	specular = compute_specular(wrap, hit_point, normal, light_dir);
 	result = add_lights(ambient, diffuse, specular);
 	return (result);
