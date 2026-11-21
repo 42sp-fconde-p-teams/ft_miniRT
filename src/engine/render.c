@@ -6,13 +6,14 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 22:15:34 by thfernan          #+#    #+#             */
-/*   Updated: 2026/11/21 11:20:19 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/21 16:05:15 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/miniRT.h"
 
-// Iterates through the sphere list and updates hit with the closest intersection.
+// Iterates through the sphere list and updates hit with the closest
+// intersection.
 static void	check_spheres(t_ray ray, t_sphere *list, t_hit *hit)
 {
 	t_sphere	*current;
@@ -35,7 +36,8 @@ static void	check_spheres(t_ray ray, t_sphere *list, t_hit *hit)
 	}
 }
 
-// Iterates through the plane list and updates hit with the closest intersection.
+// Iterates through the plane list and updates hit with the closest 
+// intersection.
 static void	check_planes(t_ray ray, t_plain *list, t_hit *hit)
 {
 	t_plain	*current;
