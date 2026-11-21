@@ -31,6 +31,7 @@ C_FILES			= ../src/window/close_window.c \
 					../src/engine/ray.c \
 					../src/engine/sphere.c \
 					../src/engine/pixel.c \
+					../src/engine/plane.c \
 					../src/engine/render.c \
 					../src/engine/light.c \
 					../src/engine/light_utils.c \
@@ -70,6 +71,7 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-product_vectors.c \
 												$(TEST_DIR)/test-ft_is_double.c \
 												$(TEST_DIR)/test-ft_is_int.c \
+												$(TEST_DIR)/test-intersect_plane.c \
 												$(TEST_DIR)/test-ray.c \
 												$(TEST_DIR)/test-sphere.c \
 												$(TEST_DIR)/test-pixel.c \
