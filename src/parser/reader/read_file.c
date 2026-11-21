@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 13:03:49 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/26 18:38:08 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/18 14:50:36 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,16 @@ static void	handle_line_error(char *line, char **split_line, int fd)
 static int	deal_with_lines(char *line, int fd, char **split_line,
 	t_scene *scene)
 {
+	int	len;
+
 	line = get_next_line(fd, 0);
 	while (line)
 	{
 		if (is_empty_line(&line, fd))
 			continue ;
-		line[ft_strlen(line) - 1] = ' ';
+		len = ft_strlen(line);
+		if (len > 0 && line[len - 1] == '\n')
+			line[len - 1] = ' ';
 		split_line = ft_split(line, ' ');
 		if (check_line(&split_line[0], scene) == EXIT_FAILURE)
 		{
