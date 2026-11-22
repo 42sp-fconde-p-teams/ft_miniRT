@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/11/21 11:20:13 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/22 12:57:17 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 # define KEY_DOWN 65364
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
-# define WIN_WIDTH 800
-# define WIN_HEIGHT 600
+# define WIN_WIDTH 1720
+# define WIN_HEIGHT 1000
 # define FOV_MIN 0
 # define FOV_MAX 180
 # define EPSILON 1e-9
@@ -177,9 +177,11 @@ t_vec3	vec3_normalize(t_vec3 v);
 t_ray	ray(t_vec3 origin, t_vec3 direction);
 int		intersect_sphere(t_ray ray, t_sphere sphere, double *distance);
 int		intersect_plane(t_ray ray, t_plain plane, double *distance);
+int		intersect_cylinder(t_ray ray, t_cylinder cyl, double *distance);
 t_hit	trace_scene(t_ray ray, t_scene *scene);
 t_vec3	generate_ray_direction(t_camera cam, int x, int y);
 t_rgb	trace_pixel(t_mlx_wrap *wrap, int x, int y);
+void	check_cylinders(t_ray ray, t_cylinder *list, t_hit *hit);
 t_rgb	compute_lighting(t_mlx_wrap *wrap, t_rgb color,
 			t_vec3 hit_point, t_vec3 normal);
 int		limit_rgb(int value);
