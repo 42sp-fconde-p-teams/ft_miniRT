@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 22:15:34 by thfernan          #+#    #+#             */
-/*   Updated: 2026/11/21 16:05:15 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/22 12:41:53 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ t_rgb	trace_pixel(t_mlx_wrap *wrap, int x, int y)
 	ray_cam.direction = generate_ray_direction(wrap->scene->camera, x, y);
 	check_spheres(ray_cam, wrap->scene->sphere, &hit);
 	check_planes(ray_cam, wrap->scene->plain, &hit);
+	check_cylinders(ray_cam, wrap->scene->cylinder, &hit);
 	if (hit.object == NULL)
 		color = (t_rgb){0, 0, 0};
 	else

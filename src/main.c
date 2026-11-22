@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:37:58 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/11/18 14:30:45 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/22 13:31:07 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,23 @@ static void	debug_spheres(t_scene *scene)
 			current->center.x, current->center.y, current->center.z,
 			current->diameter / 2.0,
 			current->color.red, current->color.green, current->color.blue);
+		current = current->next;
+	}
+}
+
+static void	debug_cylinders(t_scene	*scene)
+{
+	t_cylinder	*current;
+
+	current = scene->cylinder;
+	while (current)
+	{
+		printf("cylinder: center=(%.1f,%.1f,%.1f) axis=(%.4f,%.4f,%.4f) radius=%.1f height=%.1f color=(%d,%d,%d)\n",
+		current->coord_center.x, current->coord_center.y, current->coord_center.z,
+		current->vector.x, current->vector.y, current->vector.z,
+		current->diameter,
+		current->diameter / 2.0,
+		current->color.red, current->color.green, current->color.blue);
 		current = current->next;
 	}
 }
@@ -46,6 +63,7 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	debug_spheres(&scene);   // <- TEMPORARY DEBUG
+	debug_cylinders(&scene);   // <- TEMPORARY DEBUG
 	if (init_window(&scene, &wrap) == EXIT_FAILURE)
 	{
 		free_scene(&scene);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_cylinder.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fconde-p <fconde-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 21:44:01 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/09/17 18:49:25 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/11/22 13:38:28 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	set_cylinder(char **split_line, t_scene *scene)
 	set_vect(split_line, cylinder);
 	cylinder->diameter = ft_atod(split_line[3]);
 	cylinder->height = ft_atod(split_line[4]);
-	cylinder->diameter = ft_atod(split_line[2]);
 	set_rgb(split_line, cylinder);
 	set_chain(scene, cylinder);
 	return (EXIT_SUCCESS);
