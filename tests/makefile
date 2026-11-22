@@ -32,7 +32,9 @@ C_FILES			= ../src/window/close_window.c \
 					../src/engine/sphere.c \
 					../src/engine/pixel.c \
 					../src/engine/plane.c \
+					../src/engine/cylinder.c \
 					../src/engine/render.c \
+					../src/engine/render_cylinder.c \
 					../src/engine/light.c \
 					../src/engine/light_utils.c \
 					../src/parser/reader/read_file.c \
@@ -74,8 +76,10 @@ HEADERS			= -I. -I$(LIBFT_DIR) -I$(TEST_DIR) -I..
 												$(TEST_DIR)/test-intersect_plane.c \
 												$(TEST_DIR)/test-ray.c \
 												$(TEST_DIR)/test-sphere.c \
+												$(TEST_DIR)/test-cylinder.c \
 												$(TEST_DIR)/test-pixel.c \
 												$(TEST_DIR)/test-render.c \
+												$(TEST_DIR)/test-render_cylinder.c \
 												$(TEST_DIR)/test-light.c \
 												$(TEST_DIR)/test-light_utils.c
 
