@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 20:43:25 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/11/22 12:57:17 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/22 20:39:47 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,10 +182,21 @@ t_hit	trace_scene(t_ray ray, t_scene *scene);
 t_vec3	generate_ray_direction(t_camera cam, int x, int y);
 t_rgb	trace_pixel(t_mlx_wrap *wrap, int x, int y);
 void	check_cylinders(t_ray ray, t_cylinder *list, t_hit *hit);
+void	check_planes(t_ray ray, t_plain *list, t_hit *hit);
+void	check_spheres(t_ray ray, t_sphere *list, t_hit *hit);
 t_rgb	compute_lighting(t_mlx_wrap *wrap, t_rgb color,
 			t_vec3 hit_point, t_vec3 normal);
+t_rgb	compute_specular(t_mlx_wrap *wrap,
+			t_vec3 hit_point, t_vec3 normal, t_vec3 light_dir);
+t_rgb	compute_diffuse(t_mlx_wrap *wrap, t_rgb color,
+			t_vec3 hit_point, t_vec3 normal);
+t_rgb	compute_ambient(t_mlx_wrap *wrap, t_rgb color);
+int		is_in_shadow(t_scene *scene, t_vec3 hit_point, t_vec3 light_dir,
+			double distance_to_light);
+t_rgb	shade_hit(t_mlx_wrap *wrap, t_hit *hit);
 int		limit_rgb(int value);
 t_rgb	add_lights(t_rgb a, t_rgb d, t_rgb s);
+t_rgb	get_object_color(t_hit *hit);
 void	render(t_mlx_wrap *wrap);
 
 void	ft_put_pixel(t_img *img, int x, int y, t_rgb color);

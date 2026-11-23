@@ -44,6 +44,7 @@ SRC_FILES	= main.c \
 				engine/cylinder.c \
 				engine/render_cylinder.c \
 				engine/render.c \
+				engine/shadow.c \
 				engine/light.c \
 				engine/light_utils.c \
 				parser/reader/read_file.c \
