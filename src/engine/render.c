@@ -6,7 +6,7 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/26 22:15:34 by thfernan          #+#    #+#             */
-/*   Updated: 2026/11/22 12:41:53 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/22 19:40:04 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Iterates through the sphere list and updates hit with the closest
 // intersection.
-static void	check_spheres(t_ray ray, t_sphere *list, t_hit *hit)
+void	check_spheres(t_ray ray, t_sphere *list, t_hit *hit)
 {
 	t_sphere	*current;
 	double		t;
@@ -38,7 +38,7 @@ static void	check_spheres(t_ray ray, t_sphere *list, t_hit *hit)
 
 // Iterates through the plane list and updates hit with the closest 
 // intersection.
-static void	check_planes(t_ray ray, t_plain *list, t_hit *hit)
+void	check_planes(t_ray ray, t_plain *list, t_hit *hit)
 {
 	t_plain	*current;
 	double	t;
@@ -60,7 +60,7 @@ static void	check_planes(t_ray ray, t_plain *list, t_hit *hit)
 }
 
 // Returns the color of the object stored in the hit struct.
-static t_rgb	get_object_color(t_hit *hit)
+t_rgb	get_object_color(t_hit *hit)
 {
 	t_rgb	color;
 
@@ -92,8 +92,7 @@ t_rgb	trace_pixel(t_mlx_wrap *wrap, int x, int y)
 	if (hit.object == NULL)
 		color = (t_rgb){0, 0, 0};
 	else
-		color = compute_lighting(wrap, get_object_color(&hit),
-				hit.point, hit.normal);
+		color = shade_hit(wrap, &hit);
 	return (color);
 }
 
