@@ -6,14 +6,14 @@
 /*   By: thfernan <thfernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 14:01:24 by thfernan          #+#    #+#             */
-/*   Updated: 2026/11/21 10:10:33 by thfernan         ###   ########.fr       */
+/*   Updated: 2026/11/22 19:39:10 by thfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/miniRT.h"
 
 // Computes the ambient contribution (no direction, affects all points).
-static t_rgb	compute_ambient(t_mlx_wrap *wrap, t_rgb color)
+t_rgb	compute_ambient(t_mlx_wrap *wrap, t_rgb color)
 {
 	t_rgb	result;
 	double	ratio;
@@ -27,7 +27,7 @@ static t_rgb	compute_ambient(t_mlx_wrap *wrap, t_rgb color)
 
 // Computes the diffuse lighting for a surface point.
 // brightness = max(0, dot(N, L)).
-static t_rgb	compute_diffuse(t_mlx_wrap *wrap, t_rgb color,
+t_rgb	compute_diffuse(t_mlx_wrap *wrap, t_rgb color,
 	t_vec3 hit_point, t_vec3 normal)
 {
 	t_vec3	to_light;
@@ -48,7 +48,7 @@ static t_rgb	compute_diffuse(t_mlx_wrap *wrap, t_rgb color,
 }
 
 // Computes the specular highlight (Phong reflection model).
-static t_rgb	compute_specular(t_mlx_wrap *wrap,
+t_rgb	compute_specular(t_mlx_wrap *wrap,
 		t_vec3 hit_point, t_vec3 normal, t_vec3 light_dir)
 {
 	t_vec3	view_dir;
